@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import Eyebrow from "../ui/Eyebrow.jsx";
 import StatStrip from "../ui/StatStrip.jsx";
 import Button from "../ui/Button.jsx";
-import dawnRock from "../../assets/images/camp-tents-exterior-rock.jpg";
-import duskCamp from "../../assets/images/dining-pavilion-exterior.jpg";
+import Image from "../ui/Image.jsx";
+import { tentsExterior, diningPavilionExterior } from "../../data/imageAssets.js";
 import { brand } from "../../data/siteConfig.js";
 import "./CinematicHero.css";
 
@@ -13,11 +13,18 @@ import "./CinematicHero.css";
  * dawn/sunset campaign pair, so this uses the two closest authentic,
  * unedited Kivuko photographs available (rock-formation tents by day,
  * and the rock-shaded dining pavilion at dusk) with a slow crossfade +
- * gentle Ken Burns drift. Swap `dawnRock` / `duskCamp` for dedicated
- * hero photography as soon as it's supplied — nothing else changes.
+ * gentle Ken Burns drift. Swap `tentsExterior` / `diningPavilionExterior`
+ * in src/data/imageAssets.js for dedicated hero photography as soon as
+ * it's supplied — nothing else changes.
+ *
+ * Performance: the first frame is the page's LCP, so it loads with high
+ * priority and the dusk frame is only requested once the first has
+ * loaded (it isn't needed until the 7s crossfade, and never under
+ * prefers-reduced-motion, where the fade is disabled).
  */
 export default function CinematicHero() {
   const [active, setActive] = useState(0);
+  const [secondReady, setSecondReady] = useState(false);
 
   useEffect(() => {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -29,16 +36,22 @@ export default function CinematicHero() {
   return (
     <section className="cinematic-hero">
       <div className="cinematic-hero__frame">
-        <img
-          src={dawnRock}
+        <Image
+          photo={tentsExterior}
           alt="Kivuko camp tents beneath the rock formation"
           className={`cinematic-hero__img ${active === 0 ? "is-active" : ""}`}
+          sizes="100vw"
+          fetchPriority="high"
+          onLoad={() => setSecondReady(true)}
         />
-        <img
-          src={duskCamp}
-          alt="Kivuko's rock-sheltered dining pavilion at dusk"
-          className={`cinematic-hero__img ${active === 1 ? "is-active" : ""}`}
-        />
+        {secondReady && (
+          <Image
+            photo={diningPavilionExterior}
+            alt="Kivuko's rock-sheltered dining pavilion at dusk"
+            className={`cinematic-hero__img ${active === 1 ? "is-active" : ""}`}
+            sizes="100vw"
+          />
+        )}
         <div className="cinematic-hero__scrim" aria-hidden="true" />
       </div>
 

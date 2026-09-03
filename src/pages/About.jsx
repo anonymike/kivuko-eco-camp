@@ -1,14 +1,14 @@
 import PageLayout from "../components/layout/PageLayout.jsx";
 import PageHero from "../components/ui/PageHero.jsx";
 import InfoCard from "../components/ui/InfoCard.jsx";
-import heroImage from "../assets/images/dining-pavilion-exterior.jpg";
+import { diningPavilionExterior } from "../data/imageAssets.js";
 import { contact } from "../data/siteConfig.js";
 
 export default function About() {
   return (
     <PageLayout>
       <PageHero
-        image={heroImage}
+        image={diningPavilionExterior}
         imageAlt="Kivuko's rock-sheltered pavilion"
         eyebrow="About"
         title="The Kivuko Story"

@@ -4,7 +4,7 @@ import Eyebrow from "../components/ui/Eyebrow.jsx";
 import InfoCard from "../components/ui/InfoCard.jsx";
 import Button from "../components/ui/Button.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
-import heroImage from "../assets/images/camp-tents-exterior-rock.jpg";
+import { tentsExterior } from "../data/imageAssets.js";
 import { contact } from "../data/siteConfig.js";
 import "./Location.css";
 
@@ -18,7 +18,7 @@ export default function Location() {
   return (
     <PageLayout>
       <PageHero
-        image={heroImage}
+        image={tentsExterior}
         imageAlt="The road into Kivuko's conservancy landscape"
         eyebrow="Location"
         title="Beyond Kivuko"

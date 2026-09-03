@@ -5,13 +5,13 @@ import CardGrid from "../components/ui/CardGrid.jsx";
 import Card from "../components/ui/Card.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
 import { experiences } from "../data/experiences.js";
-import heroImage from "../assets/images/experience-bush-walk-guide.jpg";
+import { bushWalk } from "../data/imageAssets.js";
 
 export default function Experiences() {
   return (
     <PageLayout>
       <PageHero
-        image={heroImage}
+        image={bushWalk}
         imageAlt="Guests on a guided bush walk at Kivuko"
         eyebrow="Experiences"
         title="Your Wilderness. Your Way."

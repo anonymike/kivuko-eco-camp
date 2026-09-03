@@ -12,6 +12,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  animation: kivuko-settle 2.2s var(--ease-editorial) both;
 }
 
 .page-hero__scrim {

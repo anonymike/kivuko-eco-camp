@@ -3,6 +3,7 @@ import PageLayout from "../components/layout/PageLayout.jsx";
 import Eyebrow from "../components/ui/Eyebrow.jsx";
 import Button from "../components/ui/Button.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
+import Image from "../components/ui/Image.jsx";
 import { experiences } from "../data/experiences.js";
 import "./DetailPage.css";
 
@@ -16,7 +17,8 @@ export default function ExperienceDetail() {
     <PageLayout>
       <section className="detail-hero">
         <div className="detail-hero__media">
-          <img src={exp.image} alt={exp.name} />
+          {/* LCP for this route */}
+          <Image photo={exp.image} alt={exp.name} sizes="100vw" fetchPriority="high" />
         </div>
       </section>
 

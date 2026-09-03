@@ -4,14 +4,27 @@ import PageHero from "../components/ui/PageHero.jsx";
 import Eyebrow from "../components/ui/Eyebrow.jsx";
 import Button from "../components/ui/Button.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
+import Image from "../components/ui/Image.jsx";
 import { contact } from "../data/siteConfig.js";
 import { reservationTerms, enquirySubjects } from "../data/reservationTerms.js";
-import heroImage from "../assets/images/dining-area-tables.jpg";
-import strip1 from "../assets/images/camp-tents-exterior-rock.jpg";
-import strip2 from "../assets/images/wildlife-agama-lizard.jpg";
-import strip3 from "../assets/images/dining-pavilion-exterior.jpg";
-import strip4 from "../assets/images/stay-twin-tent-interior.jpg";
+import {
+  diningAreaTables,
+  tentsExterior,
+  agamaLizard,
+  diningPavilionExterior,
+  twinTentInterior,
+} from "../data/imageAssets.js";
 import "./Contact.css";
+
+const contactStrip = [
+  { photo: tentsExterior, alt: "Kivuko landscape at golden hour" },
+  { photo: agamaLizard, alt: "Wildlife at Kivuko" },
+  { photo: diningPavilionExterior, alt: "Kivuko tent exterior" },
+  { photo: twinTentInterior, alt: "Kivuko tent interior" },
+];
+
+// Four-across on desktop, two-across on mobile.
+const STRIP_SIZES = "(min-width: 700px) 23vw, 47vw";
 
 /**
  * No booking/enquiry backend yet — both forms are fully built UI with
@@ -39,7 +52,7 @@ export default function Contact({ bookingIntent = false }) {
   return (
     <PageLayout>
       <PageHero
-        image={heroImage}
+        image={diningAreaTables}
         imageAlt="Dining tables set at Kivuko"
         eyebrow="Contact · Book"
         title="Begin Your Escape"
@@ -180,10 +193,15 @@ export default function Contact({ bookingIntent = false }) {
 
       <section className="section--tight">
         <div className="container contact-strip">
-          <img src={strip1} alt="Kivuko landscape at golden hour" />
-          <img src={strip2} alt="Wildlife at Kivuko" />
-          <img src={strip3} alt="Kivuko tent exterior" />
-          <img src={strip4} alt="Kivuko tent interior" />
+          {contactStrip.map((item) => (
+            <Image
+              key={item.photo.src}
+              photo={item.photo}
+              alt={item.alt}
+              sizes={STRIP_SIZES}
+              loading="lazy"
+            />
+          ))}
         </div>
       </section>
     </PageLayout>

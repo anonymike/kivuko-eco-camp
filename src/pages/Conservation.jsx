@@ -2,13 +2,13 @@ import PageLayout from "../components/layout/PageLayout.jsx";
 import PageHero from "../components/ui/PageHero.jsx";
 import SectionIntro from "../components/ui/SectionIntro.jsx";
 import InfoCard from "../components/ui/InfoCard.jsx";
-import heroImage from "../assets/images/wildlife-agama-lizard.jpg";
+import { agamaLizard } from "../data/imageAssets.js";
 
 export default function Conservation() {
   return (
     <PageLayout>
       <PageHero
-        image={heroImage}
+        image={agamaLizard}
         imageAlt="Wildlife at Kivuko, inside the Taita Wildlife Conservancy"
         eyebrow="Conservation"
         title="Responsible Tourism"

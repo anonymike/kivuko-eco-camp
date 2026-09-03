@@ -3,13 +3,13 @@ import PageHero from "../components/ui/PageHero.jsx";
 import CardGrid from "../components/ui/CardGrid.jsx";
 import Card from "../components/ui/Card.jsx";
 import { packages } from "../data/packages.js";
-import heroImage from "../assets/images/dining-rock-overhang-table.jpg";
+import { diningRockOverhang } from "../data/imageAssets.js";
 
 export default function Packages() {
   return (
     <PageLayout>
       <PageHero
-        image={heroImage}
+        image={diningRockOverhang}
         imageAlt="A table set for a Kivuko package stay"
         eyebrow="Packages"
         title="Bundled for the Wild"

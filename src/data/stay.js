@@ -1,6 +1,4 @@
-import twinTent from "../assets/images/stay-twin-tent-interior.jpg";
-import tentsExterior from "../assets/images/camp-tents-exterior-rock.jpg";
-import ensuite from "../assets/images/stay-bathroom-ensuite.jpg";
+import { tentsExterior, twinTentInterior, ensuiteBathroom } from "./imageAssets.js";
 
 export const amenities = [
   "Private stone terrace",
@@ -20,7 +18,7 @@ export const stayUnits = [
     capacity: "Up to 6 guests",
     priceFrom: "480",
     image: tentsExterior,
-    gallery: [tentsExterior, ensuite],
+    gallery: [tentsExterior, ensuiteBathroom],
   },
   {
     slug: "twin-tent",
@@ -29,8 +27,8 @@ export const stayUnits = [
     description: "Wake to mountain views from your private veranda",
     capacity: "Up to 4 guests",
     priceFrom: "320",
-    image: twinTent,
-    gallery: [twinTent, ensuite],
+    image: twinTentInterior,
+    gallery: [twinTentInterior, ensuiteBathroom],
   },
   {
     slug: "double-tent",
@@ -40,6 +38,6 @@ export const stayUnits = [
     capacity: "Up to 2 guests",
     priceFrom: "320",
     image: tentsExterior,
-    gallery: [tentsExterior, ensuite],
+    gallery: [tentsExterior, ensuiteBathroom],
   },
 ];

@@ -3,11 +3,19 @@ import PageHero from "../components/ui/PageHero.jsx";
 import Eyebrow from "../components/ui/Eyebrow.jsx";
 import Button from "../components/ui/Button.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
-import heroImage from "../assets/images/dining-pavilion-interior-rock.jpg";
-import tablesImage from "../assets/images/dining-area-tables.jpg";
-import breakfastImage from "../assets/images/dining-breakfast-plate.jpg";
-import rockOverhangImage from "../assets/images/dining-rock-overhang-table.jpg";
+import Image from "../components/ui/Image.jsx";
+import {
+  diningPavilionInterior,
+  diningAreaTables,
+  breakfastPlate,
+  diningRockOverhang,
+} from "../data/imageAssets.js";
 import "./Dining.css";
+
+// Bush-bar media is half the container on desktop; the feature shot is
+// full-bleed; the closing plate is capped at 640px.
+const HALF_SIZES = "(min-width: 900px) 50vw, 100vw";
+const CLOSING_SIZES = "(min-width: 700px) 640px, 100vw";
 
 const meals = [
   {
@@ -32,7 +40,7 @@ export default function Dining() {
   return (
     <PageLayout>
       <PageHero
-        image={heroImage}
+        image={diningPavilionInterior}
         imageAlt="Dining pavilion beneath the rock overhang at Kivuko"
         eyebrow="Dining"
         title="Dining in the Wild"
@@ -63,13 +71,23 @@ export default function Dining() {
             </p>
           </Reveal>
           <Reveal as="div" className="dining-bushbar__media">
-            <img src={tablesImage} alt="Dining tables set beneath the thatch at Kivuko" />
+            <Image
+              photo={diningAreaTables}
+              alt="Dining tables set beneath the thatch at Kivuko"
+              sizes={HALF_SIZES}
+              loading="lazy"
+            />
           </Reveal>
         </div>
       </section>
 
       <section className="dining-feature">
-        <img src={rockOverhangImage} alt="Table set beneath the rock overhang for a private bush dinner" />
+        <Image
+          photo={diningRockOverhang}
+          alt="Table set beneath the rock overhang for a private bush dinner"
+          sizes="100vw"
+          loading="lazy"
+        />
         <div className="dining-feature__caption">
           <Reveal as="div">
             <Eyebrow tone="light">A Private Upsell</Eyebrow>
@@ -84,7 +102,13 @@ export default function Dining() {
 
       <section className="section--tight">
         <div className="container">
-          <img className="dining-closing-image" src={breakfastImage} alt="Breakfast at Kivuko" />
+          <Image
+            photo={breakfastPlate}
+            alt="Breakfast at Kivuko"
+            className="dining-closing-image"
+            sizes={CLOSING_SIZES}
+            loading="lazy"
+          />
         </div>
       </section>
     </PageLayout>

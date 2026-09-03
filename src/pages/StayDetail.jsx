@@ -3,8 +3,12 @@ import PageLayout from "../components/layout/PageLayout.jsx";
 import Eyebrow from "../components/ui/Eyebrow.jsx";
 import Button from "../components/ui/Button.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
+import Image from "../components/ui/Image.jsx";
 import { stayUnits, amenities } from "../data/stay.js";
 import "./DetailPage.css";
+
+// Detail-gallery tiles: roughly half the main column on desktop.
+const GALLERY_SIZES = "(min-width: 900px) 32vw, (min-width: 640px) 46vw, 92vw";
 
 export default function StayDetail() {
   const { slug } = useParams();
@@ -16,7 +20,8 @@ export default function StayDetail() {
     <PageLayout>
       <section className="detail-hero">
         <div className="detail-hero__media">
-          <img src={unit.image} alt={unit.name} />
+          {/* LCP for this route */}
+          <Image photo={unit.image} alt={unit.name} sizes="100vw" fetchPriority="high" />
         </div>
       </section>
 
@@ -28,8 +33,14 @@ export default function StayDetail() {
             <p className="detail-body__desc">{unit.description}</p>
 
             <div className="detail-gallery">
-              {unit.gallery.map((src, i) => (
-                <img key={i} src={src} alt={`${unit.name} view ${i + 1}`} />
+              {unit.gallery.map((photo, i) => (
+                <Image
+                  key={photo.src}
+                  photo={photo}
+                  alt={`${unit.name} view ${i + 1}`}
+                  sizes={GALLERY_SIZES}
+                  loading="lazy"
+                />
               ))}
             </div>
 

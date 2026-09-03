@@ -1,9 +1,13 @@
 import { useState } from "react";
 import PageLayout from "../components/layout/PageLayout.jsx";
 import PageHero from "../components/ui/PageHero.jsx";
+import Image from "../components/ui/Image.jsx";
 import { galleryCategories, galleryImages } from "../data/gallery.js";
-import heroImage from "../assets/images/dining-pavilion-interior-rock.jpg";
+import { diningPavilionInterior } from "../data/imageAssets.js";
 import "./Gallery.css";
+
+// Each tile is roughly a third / half / full column width.
+const TILE_SIZES = "(min-width: 1024px) 32vw, (min-width: 640px) 49vw, 96vw";
 
 export default function Gallery() {
   const [active, setActive] = useState("All");
@@ -14,7 +18,7 @@ export default function Gallery() {
   return (
     <PageLayout>
       <PageHero
-        image={heroImage}
+        image={diningPavilionInterior}
         imageAlt="Kivuko photo gallery"
         eyebrow="Gallery"
         title="Kivuko, in Pictures"
@@ -40,8 +44,12 @@ export default function Gallery() {
 
           <div className="gallery-grid">
             {visible.map((img) => (
-              <div className="gallery-grid__item" key={img.src}>
-                <img src={img.src} alt={img.alt} loading="lazy" />
+              <div
+                className="gallery-grid__item"
+                key={img.photo.src}
+                style={{ aspectRatio: `${img.photo.width} / ${img.photo.height}` }}
+              >
+                <Image photo={img.photo} alt={img.alt} sizes={TILE_SIZES} loading="lazy" />
               </div>
             ))}
           </div>

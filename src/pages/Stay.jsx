@@ -6,13 +6,13 @@ import Card from "../components/ui/Card.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
 import { stayUnits, amenities } from "../data/stay.js";
 import { brand } from "../data/siteConfig.js";
-import heroImage from "../assets/images/camp-tents-exterior-rock.jpg";
+import { tentsExterior } from "../data/imageAssets.js";
 
 export default function Stay() {
   return (
     <PageLayout>
       <PageHero
-        image={heroImage}
+        image={tentsExterior}
         imageAlt="Kivuko tents beneath the rock formation"
         eyebrow="Accommodation"
         title="Stay in the Wild"

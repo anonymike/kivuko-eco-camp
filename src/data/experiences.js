@@ -1,6 +1,4 @@
-import bushWalk from "../assets/images/experience-bush-walk-guide.jpg";
-import lizard from "../assets/images/wildlife-agama-lizard.jpg";
-import tentsExterior from "../assets/images/camp-tents-exterior-rock.jpg";
+import { bushWalk, agamaLizard, tentsExterior } from "./imageAssets.js";
 
 export const experiences = [
   {
@@ -22,7 +20,7 @@ export const experiences = [
     name: "Birding",
     duration: "2 hours",
     oneLiner: "Over 150 species, one habitat",
-    image: lizard,
+    image: agamaLizard,
   },
   {
     slug: "game-drives",
@@ -36,7 +34,7 @@ export const experiences = [
     name: "Wildlife Encounters",
     duration: "Daily, at camp",
     oneLiner: "Watch the bush come to you",
-    image: lizard,
+    image: agamaLizard,
   },
   {
     slug: "kivuko-hill",

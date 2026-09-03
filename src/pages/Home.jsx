@@ -5,13 +5,15 @@ import Button from "../components/ui/Button.jsx";
 import CardGrid from "../components/ui/CardGrid.jsx";
 import Card from "../components/ui/Card.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
+import Image from "../components/ui/Image.jsx";
 import PageLayout from "../components/layout/PageLayout.jsx";
 import { stayUnits } from "../data/stay.js";
 import { experiences } from "../data/experiences.js";
-import lizardImg from "../assets/images/wildlife-agama-lizard.jpg";
-import diningImg from "../assets/images/dining-breakfast-table.jpg";
-import rockOverhangImg from "../assets/images/dining-rock-overhang-table.jpg";
+import { agamaLizard, breakfastTable, diningRockOverhang, largestWebp } from "../data/imageAssets.js";
 import "./Home.css";
+
+// Dining split is half the container on desktop; the sundowner is full-bleed.
+const HALF_SIZES = "(min-width: 900px) 50vw, 100vw";
 
 const occasions = [
   "A romantic escape",
@@ -130,7 +132,12 @@ export default function Home() {
         <section>
           <div className="container home-dining">
             <Reveal as="div" className="home-dining__media">
-              <img src={diningImg} alt="Breakfast set for two at Kivuko" />
+              <Image
+                photo={breakfastTable}
+                alt="Breakfast set for two at Kivuko"
+                sizes={HALF_SIZES}
+                loading="lazy"
+              />
             </Reveal>
             <Reveal as="div" className="home-dining__text">
               <Eyebrow>Dining</Eyebrow>
@@ -147,7 +154,7 @@ export default function Home() {
         <section className="section--dark home-watering-hole">
           <div
             className="home-watering-hole__bg"
-            style={{ backgroundImage: `url(${lizardImg})` }}
+            style={{ backgroundImage: `url(${largestWebp(agamaLizard)})` }}
             aria-hidden="true"
           />
           <div className="container home-watering-hole__content">
@@ -168,7 +175,12 @@ export default function Home() {
 
         {/* Sunset Sundowner feature */}
         <section className="home-sundowner">
-          <img src={rockOverhangImg} alt="Table set beneath the rock overhang at Kivuko" />
+          <Image
+            photo={diningRockOverhang}
+            alt="Table set beneath the rock overhang at Kivuko"
+            sizes="100vw"
+            loading="lazy"
+          />
           <div className="home-sundowner__caption">
             <Reveal as="div">
               <Eyebrow>Every Evening</Eyebrow>
