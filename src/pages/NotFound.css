@@ -1,0 +1,18 @@
+.not-found {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--space-7);
+}
+
+.not-found .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: flex-start;
+  max-width: 34rem;
+}
+
+.not-found h1 {
+  font-size: var(--step-h2);
+}

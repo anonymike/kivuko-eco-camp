@@ -1,0 +1,17 @@
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--step-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0;
+}
+
+.eyebrow--dark {
+  color: var(--color-terracotta);
+}
+
+.eyebrow--light {
+  color: var(--color-sand);
+  opacity: 0.85;
+}

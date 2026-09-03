@@ -1,0 +1,20 @@
+.whatsapp-bubble {
+  position: fixed;
+  right: var(--space-3);
+  bottom: var(--space-3);
+  z-index: 90;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-soft);
+  transition: transform 200ms var(--ease-editorial);
+}
+
+.whatsapp-bubble:hover {
+  transform: translateY(-2px);
+}

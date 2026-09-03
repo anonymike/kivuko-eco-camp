@@ -1,0 +1,134 @@
+.contact-grid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.contact-form h2 {
+  font-size: var(--step-h3);
+  margin-bottom: var(--space-1);
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35em;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-forest);
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.7em 0.8em;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-cream);
+  color: var(--color-ink);
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+}
+
+.contact-form .btn {
+  align-self: flex-start;
+  margin-top: var(--space-1);
+}
+
+.contact-form__status {
+  font-size: 0.85rem;
+  background: var(--color-sand);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+@media (min-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+.contact-direct ul {
+  list-style: none;
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.contact-direct a {
+  text-decoration: none;
+  color: var(--color-forest);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.contact-direct a:hover {
+  color: var(--color-terracotta);
+}
+
+.contact-terms__heading {
+  font-size: var(--step-h2);
+  margin-bottom: var(--space-4);
+}
+
+.contact-terms {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+}
+
+.contact-terms h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5em;
+  color: var(--color-forest);
+}
+
+.contact-terms ul {
+  margin: 0;
+  padding-left: 1.1em;
+  color: var(--color-ink-soft);
+  font-size: 0.92rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+.contact-terms p {
+  font-size: 0.92rem;
+}
+
+@media (min-width: 700px) {
+  .contact-terms {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.contact-strip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-1);
+}
+
+.contact-strip img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+@media (min-width: 700px) {
+  .contact-strip {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

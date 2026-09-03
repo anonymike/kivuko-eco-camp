@@ -1,0 +1,29 @@
+.page-layout section {
+  padding-block: var(--space-6);
+}
+
+.page-layout section:first-of-type {
+  padding-top: var(--space-6);
+}
+
+.page-layout section.section--tight {
+  padding-block: var(--space-5);
+}
+
+.page-layout section.section--sand {
+  background: var(--color-sand);
+}
+
+.page-layout section.section--dark {
+  background: var(--color-bg-dark);
+  color: var(--color-sand);
+}
+
+.page-layout section.section--dark h2,
+.page-layout section.section--dark h3 {
+  color: var(--color-sand);
+}
+
+.page-layout section.section--dark p {
+  color: var(--color-cream-soft-text);
+}

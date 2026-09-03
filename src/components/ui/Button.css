@@ -1,0 +1,46 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 0.9em 1.9em;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 220ms var(--ease-editorial),
+    color 220ms var(--ease-editorial), border-color 220ms var(--ease-editorial);
+}
+
+.btn--filled {
+  background: var(--color-terracotta);
+  color: var(--color-cream);
+}
+.btn--filled:hover {
+  background: var(--color-terracotta-dark);
+}
+
+.btn--outline.btn--on-light {
+  background: transparent;
+  border-color: rgba(244, 239, 230, 0.55);
+  color: var(--color-cream);
+}
+.btn--outline.btn--on-light:hover {
+  border-color: var(--color-cream);
+  background: rgba(244, 239, 230, 0.08);
+}
+
+.btn--outline.btn--on-dark {
+  background: transparent;
+  border-color: var(--color-forest);
+  color: var(--color-forest);
+}
+.btn--outline.btn--on-dark:hover {
+  background: var(--color-forest);
+  color: var(--color-cream);
+}
