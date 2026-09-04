@@ -65,19 +65,25 @@ export default function AvailabilityResults({ results, demo, nights, booking }) 
               </div>
 
               <div className="result-card__rate">
-                <p className="result-card__from">from</p>
-                <p className="result-card__price">
-                  {bookingConfig.currencySymbol}
-                  {nightlyFrom} <span>/ night</span>
-                </p>
-                <p className="result-card__total">
-                  {nights} {nights === 1 ? "night" : "nights"} · est.{" "}
-                  <strong>
-                    {bookingConfig.currencySymbol}
-                    {total}
-                  </strong>
-                </p>
-                <p className="result-card__tax">{bookingConfig.taxNote}</p>
+                {nightlyFrom === null ? (
+                  <p className="result-card__placeholder">{bookingConfig.pricePlaceholder}</p>
+                ) : (
+                  <>
+                    <p className="result-card__from">from</p>
+                    <p className="result-card__price">
+                      {bookingConfig.currencySymbol}
+                      {nightlyFrom} <span>/ night</span>
+                    </p>
+                    <p className="result-card__total">
+                      {nights} {nights === 1 ? "night" : "nights"} · est.{" "}
+                      <strong>
+                        {bookingConfig.currencySymbol}
+                        {total}
+                      </strong>
+                    </p>
+                    <p className="result-card__tax">{bookingConfig.taxNote}</p>
+                  </>
+                )}
                 <Button variant="filled" onClick={() => handleSelect(unit.slug)}>
                   Select
                 </Button>

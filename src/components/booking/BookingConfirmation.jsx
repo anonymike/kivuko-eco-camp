@@ -50,8 +50,9 @@ export default function BookingConfirmation({ unit, nights, booking, reference }
           <div>
             <dt>Rate</dt>
             <dd>
-              Full board · from {bookingConfig.currencySymbol}
-              {bookingConfig.demoFromRates[unit.slug]}/night
+              {bookingConfig.demoFromRates[unit.slug]
+                ? `Full board · from ${bookingConfig.currencySymbol}${bookingConfig.demoFromRates[unit.slug]}/night`
+                : bookingConfig.pricePlaceholder}
             </dd>
           </div>
         </dl>

@@ -27,8 +27,8 @@ export default function GuestDetailsForm({ unit, nights, booking, onSubmit }) {
     });
   }
 
-  const nightly = bookingConfig.demoFromRates[unit.slug];
-  const total = nightly * nights;
+  const nightly = bookingConfig.demoFromRates[unit.slug] ?? null;
+  const total = nightly === null ? null : nightly * nights;
 
   return (
     <section className="details">
@@ -104,8 +104,9 @@ export default function GuestDetailsForm({ unit, nights, booking, onSubmit }) {
               <div>
                 <dt>Estimated total</dt>
                 <dd>
-                  {bookingConfig.currencySymbol}
-                  {total} ({bookingConfig.taxNote.toLowerCase()})
+                  {total === null
+                    ? bookingConfig.pricePlaceholder
+                    : `${bookingConfig.currencySymbol}${total} (${bookingConfig.taxNote.toLowerCase()})`}
                 </dd>
               </div>
             </dl>

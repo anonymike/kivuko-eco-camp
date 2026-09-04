@@ -121,17 +121,16 @@ function DetailsStep({ unit, nights, booking }) {
 
 /** Mobile-only sticky summary bar with the step's primary action. */
 function MobileSummary({ unit, nights, adults, children, label, onAction }) {
-  const nightly = bookingConfig.demoFromRates[unit.slug];
-  const total = nightly * nights;
+  const nightly = bookingConfig.demoFromRates[unit.slug] ?? null;
+  const total = nightly === null ? null : nightly * nights;
   return (
     <div className="mobile-summary">
       <div className="mobile-summary__text">
         <strong>{unit.name}</strong>
         <span>
           {nights} {nights === 1 ? "night" : "nights"} · {adults} {adults === 1 ? "adult" : "adults"}
-          {children > 0 ? ` · ${children} ${children === 1 ? "child" : "children"}` : ""} · est.{" "}
-          {bookingConfig.currencySymbol}
-          {total}
+          {children > 0 ? ` · ${children} ${children === 1 ? "child" : "children"}` : ""} ·{" "}
+          {total === null ? bookingConfig.pricePlaceholder : `est. ${bookingConfig.currencySymbol}${total}`}
         </span>
       </div>
       <button type="button" className="mobile-summary__cta" onClick={onAction}>

@@ -58,6 +58,17 @@ export function formatDateShort(iso) {
   });
 }
 
+/** "2026-09-12" -> "12 Sep 2026" — the booking-bar format. */
+export function formatDateBar(iso) {
+  const date = parseISO(iso);
+  if (!date) return "";
+  return date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+}
+
 /** Local-midnight Date for "today" (calendar comparisons must ignore time). */
 export function todayISO() {
   return toISO(new Date());

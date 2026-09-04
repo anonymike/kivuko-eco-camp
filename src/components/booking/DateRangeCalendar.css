@@ -147,6 +147,15 @@
   gap: 2px;
 }
 
+@media (max-width: 480px) {
+  .calendar-modal__dialog {
+    padding: var(--space-3);
+  }
+  .calendar-day {
+    min-height: 42px;
+  }
+}
+
 .calendar-day {
   position: relative;
   aspect-ratio: 1;

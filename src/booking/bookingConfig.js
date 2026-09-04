@@ -52,7 +52,8 @@ export const bookingConfig = {
    */
   demoNotice:
     "This is a demo booking preview — no live availability or reservation engine is connected yet. Rates shown are brochure from-rates; availability and final pricing are confirmed directly by the camp.",
-  demoBadge: "Demo preview",
+  demoBadge: "Demo availability",
+  pricePlaceholder: "Price to be connected",
   taxNote: "Taxes & fees to be confirmed on request",
 
   directContact: {

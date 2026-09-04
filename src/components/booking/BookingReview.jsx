@@ -14,8 +14,8 @@ const REVIEW_SIZES = "(min-width: 900px) 30vw, 92vw";
  */
 export default function BookingReview({ unit, nights, booking }) {
   const { checkIn, checkOut, adults, children, goTo } = booking;
-  const nightly = bookingConfig.demoFromRates[unit.slug];
-  const subtotal = nightly * nights;
+  const nightly = bookingConfig.demoFromRates[unit.slug] ?? null;
+  const subtotal = nightly === null ? null : nightly * nights;
 
   return (
     <section className="review">
@@ -86,30 +86,36 @@ export default function BookingReview({ unit, nights, booking }) {
         <aside className="review__aside">
           <div className="review__card">
             <h3>Price breakdown</h3>
-            <p className="review__rate">
-              {bookingConfig.currencySymbol}
-              {nightly} × {nights} {nights === 1 ? "night" : "nights"}
-            </p>
-            <dl className="review__breakdown">
-              <div>
-                <dt>Accommodation</dt>
-                <dd>
+            {nightly === null ? (
+              <p className="review__placeholder">{bookingConfig.pricePlaceholder}</p>
+            ) : (
+              <>
+                <p className="review__rate">
                   {bookingConfig.currencySymbol}
-                  {subtotal}
-                </dd>
-              </div>
-              <div>
-                <dt>{bookingConfig.taxNote}</dt>
-                <dd>On request</dd>
-              </div>
-            </dl>
-            <p className="review__total">
-              Estimated total{" "}
-              <strong>
-                {bookingConfig.currencySymbol}
-                {subtotal}
-              </strong>
-            </p>
+                  {nightly} × {nights} {nights === 1 ? "night" : "nights"}
+                </p>
+                <dl className="review__breakdown">
+                  <div>
+                    <dt>Accommodation</dt>
+                    <dd>
+                      {bookingConfig.currencySymbol}
+                      {subtotal}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>{bookingConfig.taxNote}</dt>
+                    <dd>On request</dd>
+                  </div>
+                </dl>
+                <p className="review__total">
+                  Estimated total{" "}
+                  <strong>
+                    {bookingConfig.currencySymbol}
+                    {subtotal}
+                  </strong>
+                </p>
+              </>
+            )}
             <p className="review__demo">{bookingConfig.demoNotice}</p>
           </div>
         </aside>

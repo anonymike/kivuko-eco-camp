@@ -210,6 +210,15 @@
   color: var(--color-ink-soft);
 }
 
+.result-card__placeholder {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--color-forest);
+  border-bottom: 1px dashed var(--color-line);
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+}
+
 .result-card__rate .btn {
   margin-top: var(--space-2);
 }

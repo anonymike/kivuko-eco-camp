@@ -1,8 +1,8 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import DateRangeCalendar from "./DateRangeCalendar.jsx";
 import GuestsControl from "./GuestsControl.jsx";
 import { bookingConfig } from "../../booking/bookingConfig.js";
-import { formatDateShort } from "../../booking/bookingUtils.js";
+import { formatDateBar } from "../../booking/bookingUtils.js";
 import "./BookingSearchPanel.css";
 
 /**
@@ -14,12 +14,19 @@ import "./BookingSearchPanel.css";
  * lives in URL params via useBooking (passed in from the page).
  */
 export default function BookingSearchPanel({ booking }) {
-  const { checkIn, checkOut, adults, children, hasDates, setDates, setGuests, goTo } = booking;
+  const { checkIn, checkOut, adults, children, setDates, setGuests, goTo } = booking;
   const [open, setOpen] = useState(null); // "dates" | "guests" | null
+  const [validation, setValidation] = useState("");
   const lastTrigger = useRef(null);
+
+  // Clear the inline validation as soon as the user fixes the selection.
+  useEffect(() => {
+    setValidation("");
+  }, [checkIn, checkOut]);
 
   function openModal(name, trigger) {
     lastTrigger.current = trigger;
+    setValidation("");
     setOpen(name);
   }
 
@@ -29,7 +36,13 @@ export default function BookingSearchPanel({ booking }) {
   }
 
   function handleCheckAvailability() {
-    if (!hasDates) {
+    if (!checkIn) {
+      setValidation("Please choose your check-in date.");
+      openModal("dates", null);
+      return;
+    }
+    if (!checkOut) {
+      setValidation("Please choose your check-out date.");
       openModal("dates", null);
       return;
     }
@@ -60,7 +73,7 @@ export default function BookingSearchPanel({ booking }) {
                 onClick={(e) => openModal("dates", e.currentTarget)}
               >
                 <span aria-hidden="true" className="booking-search__date-icon">▸</span>
-                {checkIn ? formatDateShort(checkIn) : "Select date"}
+                {checkIn ? formatDateBar(checkIn) : "Select date"}
               </button>
             </div>
 
@@ -77,7 +90,7 @@ export default function BookingSearchPanel({ booking }) {
                 onClick={(e) => openModal("dates", e.currentTarget)}
               >
                 <span aria-hidden="true" className="booking-search__date-icon">▸</span>
-                {checkOut ? formatDateShort(checkOut) : "Select date"}
+                {checkOut ? formatDateBar(checkOut) : "Select date"}
               </button>
             </div>
 
@@ -108,6 +121,12 @@ export default function BookingSearchPanel({ booking }) {
             Check Availability
           </button>
         </div>
+
+        {validation && (
+          <p className="booking-search__validation" role="status">
+            {validation}
+          </p>
+        )}
 
         <p className="booking-search__demo">{bookingConfig.demoNotice}</p>
 
