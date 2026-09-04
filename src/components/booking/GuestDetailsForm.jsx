@@ -18,12 +18,21 @@ export default function GuestDetailsForm({ unit, nights, booking, onSubmit }) {
     e.preventDefault();
     if (submitting) return;
     setSubmitting(true);
+    const fd = new FormData(e.currentTarget);
     onSubmit({
       checkIn,
       checkOut,
+      nights,
       adults,
       children,
-      unit: unit.slug,
+      unit: unit.name,
+      guest: {
+        name: fd.get("name") || "",
+        email: fd.get("email") || "",
+        phone: fd.get("phone") || "",
+        country: fd.get("country") || "",
+        requests: fd.get("requests") || "",
+      },
     });
   }
 

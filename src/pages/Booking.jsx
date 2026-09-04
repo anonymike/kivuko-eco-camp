@@ -3,6 +3,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import useBooking from "../hooks/useBooking.js";
 import { availabilityAdapter } from "../booking/availabilityAdapter.js";
 import { bookingConfig } from "../booking/bookingConfig.js";
+import { sendBookingNotification } from "../services/emailService.js";
 import { stayUnits } from "../data/stay.js";
 import BookingSteps from "../components/booking/BookingSteps.jsx";
 import BookingSearchPanel from "../components/booking/BookingSearchPanel.jsx";
@@ -110,10 +111,13 @@ function ResultsStep({ booking }) {
 
 function DetailsStep({ unit, nights, booking }) {
   const { goTo } = booking;
-  function handleSubmit(guestDetails) {
-    // Demo adapter — nothing is stored or sent. Wire the real adapter here.
+  function handleSubmit(bookingData) {
+    // Fire-and-forget: attempt to send owner notification email.
+    // The API runs in demo mode when RESEND_API_KEY is not set.
+    sendBookingNotification(bookingData);
+    // Then complete the flow via the adapter.
     availabilityAdapter
-      .submitBookingRequest(guestDetails)
+      .submitBookingRequest(bookingData)
       .then(() => goTo("/book/confirmed"));
   }
   return <GuestDetailsForm unit={unit} nights={nights} booking={booking} onSubmit={handleSubmit} />;

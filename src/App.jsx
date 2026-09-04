@@ -19,6 +19,15 @@ import Contact from "./pages/Contact.jsx";
 import Booking from "./pages/Booking.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
+import AdminLayout from "./components/admin/AdminLayout.jsx";
+import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
+import AdminAccommodation from "./pages/admin/AdminAccommodation.jsx";
+import AdminPackages from "./pages/admin/AdminPackages.jsx";
+import AdminExperiences from "./pages/admin/AdminExperiences.jsx";
+import AdminGallery from "./pages/admin/AdminGallery.jsx";
+import AdminBookings from "./pages/admin/AdminBookings.jsx";
+import AdminSettings from "./pages/admin/AdminSettings.jsx";
+
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -28,10 +37,13 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const { pathname } = useLocation();
+  const isAdmin = pathname.startsWith("/admin");
+
   return (
     <div className="site">
       <ScrollToTop />
-      <Header />
+      {!isAdmin && <Header />}
       <main id="main">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -51,11 +63,22 @@ export default function App() {
           <Route path="/book/review" element={<Booking />} />
           <Route path="/book/details" element={<Booking />} />
           <Route path="/book/confirmed" element={<Booking />} />
+
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="accommodation" element={<AdminAccommodation />} />
+            <Route path="packages" element={<AdminPackages />} />
+            <Route path="experiences" element={<AdminExperiences />} />
+            <Route path="gallery" element={<AdminGallery />} />
+            <Route path="bookings" element={<AdminBookings />} />
+            <Route path="settings" element={<AdminSettings />} />
+          </Route>
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
-      <Footer />
-      <WhatsAppBubble />
+      {!isAdmin && <Footer />}
+      {!isAdmin && <WhatsAppBubble />}
     </div>
   );
 }

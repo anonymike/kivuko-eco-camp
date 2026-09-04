@@ -1,0 +1,72 @@
+.admin-dashboard__header {
+  margin-bottom: var(--space-5);
+}
+
+.admin-dashboard__header h1 {
+  font-size: var(--step-h2);
+}
+
+.admin-dashboard__header p {
+  margin-top: var(--space-1);
+  max-width: 42rem;
+}
+
+.admin-dashboard__grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 700px) {
+  .admin-dashboard__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.admin-status-card {
+  background: var(--color-cream);
+  border: 1px solid var(--color-line);
+  padding: var(--space-3);
+}
+
+.admin-status-card h2 {
+  font-size: var(--step-h3);
+  margin-bottom: var(--space-2);
+}
+
+.admin-status-card dl {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.admin-status-card > dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-block: 0.3em;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.admin-status-card > dl > div:last-child {
+  border-bottom: none;
+}
+
+.admin-status-card dt {
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+}
+
+.admin-status-card dd {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-forest);
+}
+
+.admin-status-card__note {
+  margin-top: var(--space-2);
+  font-size: 0.78rem;
+  color: var(--color-ink-soft);
+  padding: 0.5em 0.8em;
+  background: var(--color-sand);
+  border-left: 2px solid var(--color-terracotta);
+}
