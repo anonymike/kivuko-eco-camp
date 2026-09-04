@@ -1,0 +1,58 @@
+.booking-steps {
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-cream-soft);
+}
+
+.booking-steps ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+}
+
+.booking-steps__item {
+  padding-block: var(--space-2);
+  white-space: nowrap;
+}
+
+.booking-steps__item a,
+.booking-steps__item > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-ink-soft);
+  text-decoration: none;
+}
+
+.booking-steps__item--current > span {
+  color: var(--color-terracotta);
+}
+
+.booking-steps__item a:hover {
+  color: var(--color-terracotta);
+}
+
+.booking-steps__n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--color-line);
+  border-radius: 50%;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.booking-steps__item--current .booking-steps__n {
+  border-color: var(--color-terracotta);
+  background: var(--color-terracotta);
+  color: var(--color-cream);
+}

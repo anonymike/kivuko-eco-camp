@@ -1,0 +1,224 @@
+/* Availability results — premium hotel-engine cards in Kivuko's register:
+   photographic media, clear hierarchy, honest demo labeling. */
+
+.results {
+  padding-block: var(--space-7) var(--space-7);
+}
+
+.results__head {
+  max-width: 42rem;
+  margin-bottom: var(--space-4);
+}
+
+.results__head h1 {
+  font-size: var(--step-h2);
+  margin-top: var(--space-2);
+}
+
+.results__summary {
+  margin-top: var(--space-2);
+  font-size: var(--step-body-lg);
+  color: var(--color-forest);
+}
+
+.results__edit {
+  margin-top: var(--space-2);
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-terracotta);
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: border-color 200ms;
+}
+
+.results__edit:hover {
+  border-color: var(--color-terracotta);
+}
+
+.results__demo {
+  border: 1px solid var(--color-line);
+  border-left: 3px solid var(--color-terracotta);
+  background: var(--color-cream-soft);
+  padding: var(--space-2) var(--space-3);
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+  margin-bottom: var(--space-5);
+}
+
+.results__demo strong {
+  color: var(--color-terracotta);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+
+.results__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-5);
+}
+
+.result-card {
+  display: grid;
+  gap: var(--space-3);
+  background: var(--color-cream);
+  border: 1px solid var(--color-line);
+  padding: var(--space-3);
+}
+
+@media (min-width: 760px) {
+  .result-card {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr) minmax(0, 1.6fr);
+    gap: var(--space-4);
+    align-items: start;
+  }
+}
+
+.result-card__media {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--color-forest);
+}
+
+.result-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms var(--ease-editorial);
+}
+
+.result-card:hover .result-card__media img {
+  transform: scale(1.03);
+}
+
+.result-card__capacity {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-terracotta);
+}
+
+.result-card__body h2 {
+  font-size: var(--step-h3);
+  margin-top: 0.35em;
+}
+
+.result-card__desc {
+  margin-top: 0.5em;
+  font-size: 0.95rem;
+}
+
+.result-card__inclusions {
+  margin-top: var(--space-3);
+}
+
+.result-card__inclusions h3 {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  font-family: var(--font-body);
+  font-weight: 600;
+  margin-bottom: 0.6em;
+}
+
+.result-card__inclusions ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35em;
+}
+
+.result-card__inclusions li {
+  position: relative;
+  padding-left: 1.1em;
+  font-size: 0.85rem;
+  color: var(--color-forest);
+}
+
+.result-card__inclusions li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 5px;
+  height: 5px;
+  background: var(--color-terracotta);
+  border-radius: 50%;
+}
+
+.result-card__rate {
+  border-top: 1px solid var(--color-line);
+  padding-top: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25em;
+}
+
+@media (min-width: 760px) {
+  .result-card__rate {
+    border-top: none;
+    border-left: 1px solid var(--color-line);
+    padding-top: 0;
+    padding-left: var(--space-3);
+  }
+}
+
+.result-card__from {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
+
+.result-card__price {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  color: var(--color-forest);
+  line-height: 1.1;
+}
+
+.result-card__price span {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-ink-soft);
+}
+
+.result-card__total {
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+  margin-top: 0.4em;
+}
+
+.result-card__total strong {
+  color: var(--color-forest);
+}
+
+.result-card__tax {
+  font-size: 0.75rem;
+  color: var(--color-ink-soft);
+}
+
+.result-card__rate .btn {
+  margin-top: var(--space-2);
+}
+
+.result-card__availability {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-forest);
+  opacity: 0.75;
+  margin-top: 0.3em;
+}

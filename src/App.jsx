@@ -16,6 +16,7 @@ import About from "./pages/About.jsx";
 import Location from "./pages/Location.jsx";
 import Gallery from "./pages/Gallery.jsx";
 import Contact from "./pages/Contact.jsx";
+import Booking from "./pages/Booking.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
 function ScrollToTop() {
@@ -45,7 +46,11 @@ export default function App() {
           <Route path="/location" element={<Location />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/book" element={<Contact bookingIntent />} />
+          <Route path="/book" element={<Booking />} />
+          <Route path="/book/results" element={<Booking />} />
+          <Route path="/book/review" element={<Booking />} />
+          <Route path="/book/details" element={<Booking />} />
+          <Route path="/book/confirmed" element={<Booking />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

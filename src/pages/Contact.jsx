@@ -33,7 +33,7 @@ const STRIP_SIZES = "(min-width: 700px) 23vw, 47vw";
  * email/CRM webhook when the backend is ready; nothing else needs to
  * change.
  */
-export default function Contact({ bookingIntent = false }) {
+export default function Contact() {
   const [enquirySent, setEnquirySent] = useState(false);
   const [callbackSent, setCallbackSent] = useState(false);
 
@@ -64,7 +64,7 @@ export default function Contact({ bookingIntent = false }) {
       <section>
         <div className="container contact-grid">
           <Reveal as="form" className="contact-form" onSubmit={handleEnquirySubmit}>
-            <h2>{bookingIntent ? "Booking Enquiry" : "Send an Enquiry"}</h2>
+            <h2>Send an Enquiry</h2>
             <label>
               Full Name
               <input type="text" name="name" required />
