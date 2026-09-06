@@ -1,4 +1,5 @@
 import CinematicHero from "../components/sections/CinematicHero.jsx";
+import WildReveal from "../components/sections/WildReveal.jsx";
 import SectionIntro from "../components/ui/SectionIntro.jsx";
 import Eyebrow from "../components/ui/Eyebrow.jsx";
 import Button from "../components/ui/Button.jsx";
@@ -7,9 +8,10 @@ import Card from "../components/ui/Card.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
 import Image from "../components/ui/Image.jsx";
 import PageLayout from "../components/layout/PageLayout.jsx";
+import useParallax from "../hooks/useParallax.js";
 import { stayUnits } from "../data/stay.js";
 import { experiences } from "../data/experiences.js";
-import { agamaLizard, breakfastTable, diningRockOverhang, largestWebp } from "../data/imageAssets.js";
+import { breakfastTable, diningRockOverhang } from "../data/imageAssets.js";
 import "./Home.css";
 
 // Dining split is half the container on desktop; the sundowner is full-bleed.
@@ -23,6 +25,10 @@ const occasions = [
 ];
 
 export default function Home() {
+  // The sundowner photograph drifts a few dozen pixels against the scroll —
+  // the page's quiet editorial parallax. Flat on mobile / reduced motion.
+  const sundownerRef = useParallax({ strength: 0.05, max: 22 });
+
   return (
     <>
       <CinematicHero />
@@ -40,7 +46,7 @@ export default function Home() {
         {/* Come for the Wilderness */}
         <section className="section--sand">
           <div className="container home-occasions">
-            <Reveal as="div" className="home-occasions__text">
+            <Reveal as="div" variant="scale" className="home-occasions__text">
               <h2>Come for the wilderness. Stay for the experience. Leave with a story.</h2>
             </Reveal>
             <Reveal as="ul" className="home-occasions__list">
@@ -77,20 +83,22 @@ export default function Home() {
             <SectionIntro eyebrow="Accommodation" title="Private Spaces, Pure Wilderness">
               Each unit is designed to disappear into the landscape while keeping you close to the wild.
             </SectionIntro>
-            <CardGrid>
-              {stayUnits.map((unit) => (
-                <Card
-                  key={unit.slug}
-                  to={`/stay/${unit.slug}`}
-                  image={unit.image}
-                  imageAlt={unit.name}
-                  badge={unit.view}
-                  title={unit.name}
-                  description={unit.description}
-                  meta={`${unit.capacity} · From $${unit.priceFrom}/night`}
-                />
-              ))}
-            </CardGrid>
+            <Reveal>
+              <CardGrid>
+                {stayUnits.map((unit) => (
+                  <Card
+                    key={unit.slug}
+                    to={`/stay/${unit.slug}`}
+                    image={unit.image}
+                    imageAlt={unit.name}
+                    badge={unit.view}
+                    title={unit.name}
+                    description={unit.description}
+                    meta={`${unit.capacity} · From $${unit.priceFrom}/night`}
+                  />
+                ))}
+              </CardGrid>
+            </Reveal>
             <div className="home-section-cta">
               <Button to="/stay" variant="outline" tone="dark">
                 View All Stays
@@ -106,20 +114,22 @@ export default function Home() {
               From gentle birding to a challenging hill climb — each experience is shaped by the land and the
               moment.
             </SectionIntro>
-            <CardGrid columns={4}>
-              {experiences.slice(0, 4).map((exp) => (
-                <Card
-                  key={exp.slug}
-                  to={`/experiences/${exp.slug}`}
-                  image={exp.image}
-                  imageAlt={exp.name}
-                  badge={exp.duration}
-                  title={exp.name}
-                  description={exp.oneLiner}
-                  linkLabel="Discover"
-                />
-              ))}
-            </CardGrid>
+            <Reveal variant="scale">
+              <CardGrid columns={4}>
+                {experiences.slice(0, 4).map((exp) => (
+                  <Card
+                    key={exp.slug}
+                    to={`/experiences/${exp.slug}`}
+                    image={exp.image}
+                    imageAlt={exp.name}
+                    badge={exp.duration}
+                    title={exp.name}
+                    description={exp.oneLiner}
+                    linkLabel="Discover"
+                  />
+                ))}
+              </CardGrid>
+            </Reveal>
             <div className="home-section-cta">
               <Button to="/experiences" variant="outline" tone="dark">
                 All Experiences
@@ -131,7 +141,7 @@ export default function Home() {
         {/* Dining teaser */}
         <section>
           <div className="container home-dining">
-            <Reveal as="div" className="home-dining__media">
+            <Reveal as="div" variant="mask" className="home-dining__media">
               <Image
                 photo={breakfastTable}
                 alt="Breakfast set for two at Kivuko"
@@ -150,32 +160,13 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Watering Hole feature — dark, matches screenshot 2 */}
-        <section className="section--dark home-watering-hole">
-          <div
-            className="home-watering-hole__bg"
-            style={{ backgroundImage: `url(${largestWebp(agamaLizard)})` }}
-            aria-hidden="true"
-          />
-          <div className="container home-watering-hole__content">
-            <Reveal as="div">
-              <Eyebrow tone="light">The Watering Hole</Eyebrow>
-              <h2>Wildlife Comes to You</h2>
-              <p>
-                At Kivuko, you don&apos;t always have to go looking for the wild. From the camp itself, guests
-                can observe wildlife gathering at the watering hole — sometimes before you&apos;ve even finished
-                your morning coffee.
-              </p>
-              <Button to="/experiences/wildlife-encounters" variant="outline" tone="light">
-                Discover Wildlife
-              </Button>
-            </Reveal>
-          </div>
-        </section>
+        {/* Signature moment — "The Wild Reveals Itself" */}
+        <WildReveal />
 
         {/* Sunset Sundowner feature */}
         <section className="home-sundowner">
           <Image
+            ref={sundownerRef}
             photo={diningRockOverhang}
             alt="Table set beneath the rock overhang at Kivuko"
             sizes="100vw"

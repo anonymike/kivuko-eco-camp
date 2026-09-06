@@ -66,4 +66,7 @@
   --ease-editorial: cubic-bezier(0.22, 0.61, 0.36, 1);
   --duration-hero: 8s;
   --duration-reveal: 900ms;
+  --duration-mask: 1200ms;
+  --duration-slow: 1400ms;
+  --duration-page: 520ms;
 }

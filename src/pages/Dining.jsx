@@ -4,6 +4,7 @@ import Eyebrow from "../components/ui/Eyebrow.jsx";
 import Button from "../components/ui/Button.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
 import Image from "../components/ui/Image.jsx";
+import useParallax from "../hooks/useParallax.js";
 import {
   diningPavilionInterior,
   diningAreaTables,
@@ -37,6 +38,9 @@ const meals = [
 ];
 
 export default function Dining() {
+  // The full-bleed bush-dinner photograph drifts subtly against the scroll.
+  const featureRef = useParallax({ strength: 0.05, max: 22 });
+
   return (
     <PageLayout>
       <PageHero
@@ -50,13 +54,15 @@ export default function Dining() {
       />
 
       <section>
-        <div className="container dining-meals">
-          {meals.map((meal) => (
-            <Reveal as="div" className="dining-meals__item" key={meal.title}>
-              <h3>{meal.title}</h3>
-              <p>{meal.body}</p>
-            </Reveal>
-          ))}
+        <div className="container">
+          <Reveal className="dining-meals">
+            {meals.map((meal) => (
+              <div className="dining-meals__item" key={meal.title}>
+                <h3>{meal.title}</h3>
+                <p>{meal.body}</p>
+              </div>
+            ))}
+          </Reveal>
         </div>
       </section>
 
@@ -70,7 +76,7 @@ export default function Dining() {
               campfire.
             </p>
           </Reveal>
-          <Reveal as="div" className="dining-bushbar__media">
+          <Reveal as="div" variant="mask" className="dining-bushbar__media">
             <Image
               photo={diningAreaTables}
               alt="Dining tables set beneath the thatch at Kivuko"
@@ -83,6 +89,7 @@ export default function Dining() {
 
       <section className="dining-feature">
         <Image
+          ref={featureRef}
           photo={diningRockOverhang}
           alt="Table set beneath the rock overhang for a private bush dinner"
           sizes="100vw"
@@ -102,13 +109,15 @@ export default function Dining() {
 
       <section className="section--tight">
         <div className="container">
-          <Image
-            photo={breakfastPlate}
-            alt="Breakfast at Kivuko"
-            className="dining-closing-image"
-            sizes={CLOSING_SIZES}
-            loading="lazy"
-          />
+          <Reveal variant="mask">
+            <Image
+              photo={breakfastPlate}
+              alt="Breakfast at Kivuko"
+              className="dining-closing-image"
+              sizes={CLOSING_SIZES}
+              loading="lazy"
+            />
+          </Reveal>
         </div>
       </section>
     </PageLayout>

@@ -4,7 +4,8 @@
   left: 0;
   right: 0;
   z-index: 100;
-  transition: background-color 320ms var(--ease-editorial), border-color 320ms var(--ease-editorial);
+  transition: background-color 320ms var(--ease-editorial), border-color 320ms var(--ease-editorial),
+    box-shadow 320ms var(--ease-editorial);
 }
 
 .site-header--transparent {
@@ -15,6 +16,7 @@
 .site-header--solid {
   background: var(--color-bg-dark);
   border-bottom: 1px solid var(--color-line-on-dark);
+  box-shadow: 0 12px 28px -24px rgba(0, 0, 0, 0.6);
 }
 
 .site-header__row {
@@ -46,21 +48,39 @@
 }
 
 .site-header__nav a {
+  position: relative;
   text-decoration: none;
   color: var(--color-sand);
   font-size: 0.78rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 600;
-  padding-bottom: 4px;
-  border-bottom: 1px solid transparent;
-  transition: color 200ms, border-color 200ms;
+  padding-bottom: 6px;
+  transition: color 220ms var(--ease-editorial);
+}
+
+/* The active underline grows from the left — quiet, editorial feedback. */
+.site-header__nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--color-terracotta);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 320ms var(--ease-editorial);
 }
 
 .site-header__nav a:hover,
 .site-header__nav a.is-active {
   color: var(--color-terracotta);
-  border-color: var(--color-terracotta);
+}
+
+.site-header__nav a:hover::after,
+.site-header__nav a.is-active::after {
+  transform: scaleX(1);
 }
 
 .site-header__cta {

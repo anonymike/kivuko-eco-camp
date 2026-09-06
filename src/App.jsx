@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "./components/layout/Header.jsx";
 import Footer from "./components/layout/Footer.jsx";
 import WhatsAppBubble from "./components/layout/WhatsAppBubble.jsx";
@@ -36,6 +36,31 @@ function ScrollToTop() {
   return null;
 }
 
+/**
+ * Chapter transition between major public pages: the new route simply
+ * settles in (a short fade + quiet rise) — no loading screen, no delay
+ * to navigation. Skipped on the first load (LCP stays untouched), on
+ * the booking flow (it must stay fast and focused) and in admin.
+ */
+function PageTransition({ children }) {
+  const { pathname } = useLocation();
+  const [navKey, setNavKey] = useState(0);
+  const firstPath = useRef(pathname);
+
+  useEffect(() => {
+    if (pathname !== firstPath.current) setNavKey((k) => k + 1);
+  }, [pathname]);
+
+  const animate =
+    navKey > 0 && !pathname.startsWith("/book") && !pathname.startsWith("/admin");
+
+  return (
+    <div key={animate ? `page-${navKey}` : "static"} className={animate ? "page-transition" : undefined}>
+      {children}
+    </div>
+  );
+}
+
 export default function App() {
   const { pathname } = useLocation();
   const isAdmin = pathname.startsWith("/admin");
@@ -45,6 +70,7 @@ export default function App() {
       <ScrollToTop />
       {!isAdmin && <Header />}
       <main id="main">
+        <PageTransition>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/stay" element={<Stay />} />
@@ -76,6 +102,7 @@ export default function App() {
 
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </PageTransition>
       </main>
       {!isAdmin && <Footer />}
       {!isAdmin && <WhatsAppBubble />}

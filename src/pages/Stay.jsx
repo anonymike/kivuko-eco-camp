@@ -23,20 +23,22 @@ export default function Stay() {
 
       <section>
         <div className="container">
-          <CardGrid>
-            {stayUnits.map((unit) => (
-              <Card
-                key={unit.slug}
-                to={`/stay/${unit.slug}`}
-                image={unit.image}
-                imageAlt={unit.name}
-                badge={unit.view}
-                title={unit.name}
-                description={unit.description}
-                meta={`${unit.capacity} · From $${unit.priceFrom}/night`}
-              />
-            ))}
-          </CardGrid>
+          <Reveal>
+            <CardGrid>
+              {stayUnits.map((unit) => (
+                <Card
+                  key={unit.slug}
+                  to={`/stay/${unit.slug}`}
+                  image={unit.image}
+                  imageAlt={unit.name}
+                  badge={unit.view}
+                  title={unit.name}
+                  description={unit.description}
+                  meta={`${unit.capacity} · From $${unit.priceFrom}/night`}
+                />
+              ))}
+            </CardGrid>
+          </Reveal>
         </div>
       </section>
 

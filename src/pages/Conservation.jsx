@@ -2,6 +2,7 @@ import PageLayout from "../components/layout/PageLayout.jsx";
 import PageHero from "../components/ui/PageHero.jsx";
 import SectionIntro from "../components/ui/SectionIntro.jsx";
 import InfoCard from "../components/ui/InfoCard.jsx";
+import Reveal from "../components/ui/Reveal.jsx";
 import { agamaLizard } from "../data/imageAssets.js";
 
 export default function Conservation() {
@@ -20,7 +21,7 @@ export default function Conservation() {
       <section>
         <div className="container">
           <SectionIntro eyebrow="How We Operate" title="Conservation Pillars" align="left" />
-          <div className="info-card-grid">
+          <Reveal className="info-card-grid">
             <InfoCard title="Conservancy Partnership">
               Kivuko operates within the Taita Wildlife Conservancy, bordering Tsavo East National Park —
               wilderness that depends on the conservancy model to stay intact.
@@ -36,7 +37,7 @@ export default function Conservation() {
             <InfoCard title="Leave No Trace">
               The same ethos that shapes the camp's design carries into every guest experience Kivuko offers.
             </InfoCard>
-          </div>
+          </Reveal>
         </div>
       </section>
     </PageLayout>

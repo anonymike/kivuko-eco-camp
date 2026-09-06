@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { buildSrcSet } from "../../data/imageAssets.js";
 
 /**
@@ -13,21 +14,17 @@ import { buildSrcSet } from "../../data/imageAssets.js";
  *
  * `loading` / `fetchPriority` / `decoding` follow the browser defaults when
  * omitted (eager, auto, async); pass them explicitly per usage site.
+ * A ref is forwarded to the underlying <img> (used by useParallax).
  */
-export default function Image({
-  photo,
-  alt = "",
-  sizes = "100vw",
-  loading,
-  fetchPriority,
-  decoding = "async",
-  className,
-  ...rest
-}) {
+const Image = forwardRef(function Image(
+  { photo, alt = "", sizes = "100vw", loading, fetchPriority, decoding = "async", className, ...rest },
+  ref
+) {
   if (!photo) return null;
 
   return (
     <img
+      ref={ref}
       src={photo.src}
       srcSet={buildSrcSet(photo.webp)}
       sizes={sizes}
@@ -41,4 +38,6 @@ export default function Image({
       {...rest}
     />
   );
-}
+});
+
+export default Image;

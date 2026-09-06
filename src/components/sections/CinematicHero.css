@@ -44,6 +44,12 @@
     animation: none;
     transition: opacity 400ms ease;
   }
+  .cinematic-hero__content > *,
+  .cinematic-hero__stats {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
 }
 
 .cinematic-hero__scrim {
@@ -65,6 +71,46 @@
   flex-direction: column;
   gap: var(--space-2);
   max-width: 44rem;
+}
+
+/* Load choreography — the page enters calmly, in order: eyebrow, then
+   headline, then supporting copy, then CTAs, then the stat strip. Each
+   element settles from a quiet rise; nothing flies, nothing overlaps. */
+.cinematic-hero__content > *,
+.cinematic-hero__stats {
+  opacity: 0;
+  animation: kivuko-hero-rise 1s var(--ease-editorial) both;
+}
+
+.cinematic-hero__content > *:nth-child(1) {
+  animation-delay: 200ms;
+}
+
+.cinematic-hero__content > *:nth-child(2) {
+  animation-delay: 480ms;
+}
+
+.cinematic-hero__content > *:nth-child(3) {
+  animation-delay: 760ms;
+}
+
+.cinematic-hero__content > *:nth-child(4) {
+  animation-delay: 1030ms;
+}
+
+.cinematic-hero__stats {
+  animation-delay: 1350ms;
+}
+
+@keyframes kivuko-hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .cinematic-hero__content h1 {

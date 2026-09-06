@@ -22,20 +22,22 @@ export default function Experiences() {
 
       <section>
         <div className="container">
-          <CardGrid>
-            {experiences.map((exp) => (
-              <Card
-                key={exp.slug}
-                to={`/experiences/${exp.slug}`}
-                image={exp.image}
-                imageAlt={exp.name}
-                badge={exp.duration}
-                title={exp.name}
-                description={exp.oneLiner}
-                linkLabel="Discover"
-              />
-            ))}
-          </CardGrid>
+          <Reveal>
+            <CardGrid>
+              {experiences.map((exp) => (
+                <Card
+                  key={exp.slug}
+                  to={`/experiences/${exp.slug}`}
+                  image={exp.image}
+                  imageAlt={exp.name}
+                  badge={exp.duration}
+                  title={exp.name}
+                  description={exp.oneLiner}
+                  linkLabel="Discover"
+                />
+              ))}
+            </CardGrid>
+          </Reveal>
         </div>
       </section>
 

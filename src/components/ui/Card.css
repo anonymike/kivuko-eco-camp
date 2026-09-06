@@ -4,6 +4,12 @@
   text-decoration: none;
   color: inherit;
   background: var(--color-cream);
+  transition: transform 450ms var(--ease-editorial), box-shadow 450ms var(--ease-editorial);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-soft);
 }
 
 .card__media {
@@ -68,4 +74,13 @@
   text-transform: uppercase;
   font-weight: 600;
   color: var(--color-terracotta);
+}
+
+.card__link span {
+  display: inline-block;
+  transition: transform 300ms var(--ease-editorial);
+}
+
+.card:hover .card__link span {
+  transform: translateX(4px);
 }

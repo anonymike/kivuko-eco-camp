@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PageLayout from "../components/layout/PageLayout.jsx";
 import PageHero from "../components/ui/PageHero.jsx";
+import Reveal from "../components/ui/Reveal.jsx";
 import Image from "../components/ui/Image.jsx";
 import { galleryCategories, galleryImages } from "../data/gallery.js";
 import { diningPavilionInterior } from "../data/imageAssets.js";
@@ -42,15 +43,22 @@ export default function Gallery() {
             ))}
           </div>
 
-          <div className="gallery-grid">
-            {visible.map((img) => (
-              <div
+          {/* key={active} re-runs the entrance when a filter is chosen, so
+              each category reads as its own chapter of the visual story. */}
+          <div className="gallery-grid" key={active}>
+            {visible.map((img, i) => (
+              <Reveal
+                as="div"
+                variant="mask"
                 className="gallery-grid__item"
                 key={img.photo.src}
-                style={{ aspectRatio: `${img.photo.width} / ${img.photo.height}` }}
+                style={{
+                  aspectRatio: `${img.photo.width} / ${img.photo.height}`,
+                  transitionDelay: `${Math.min(i, 9) * 70}ms`,
+                }}
               >
                 <Image photo={img.photo} alt={img.alt} sizes={TILE_SIZES} loading="lazy" />
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

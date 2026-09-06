@@ -26,3 +26,25 @@
   font-size: var(--step-body-lg);
   max-width: var(--measure);
 }
+
+/* Typography enters in order — eyebrow first, then headline, then copy.
+   One deliberate beat per element; the parent Reveal (variant="none")
+   only carries the is-visible state. */
+.section-intro > * {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 750ms var(--ease-editorial), transform 750ms var(--ease-editorial);
+}
+
+.section-intro.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-intro.is-visible > *:nth-child(2) {
+  transition-delay: 120ms;
+}
+
+.section-intro.is-visible > *:nth-child(3) {
+  transition-delay: 240ms;
+}

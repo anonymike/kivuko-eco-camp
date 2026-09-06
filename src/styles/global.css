@@ -86,7 +86,14 @@ button {
   outline-offset: 3px;
 }
 
-/* Scroll-reveal — single subtle rise/fade, respects reduced motion */
+/* Scroll-reveal — one quiet effect, reused across sections.
+   Variants give each section its own grammar without new libraries:
+     rise  (default) — fade + gentle rise, the established Kivuko entrance
+     scale           — fade + settle from 0.98 → 1 (editorial grids)
+     mask            — clip-path reveal for photography: the image is
+                       masked, then opens as it enters the viewport and
+                       de-scales into place
+     none            — state carrier only; children own their motion */
 .reveal {
   opacity: 0;
   transform: translateY(18px);
@@ -97,6 +104,57 @@ button {
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.reveal--none {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.reveal--scale {
+  transform: scale(0.98);
+}
+
+.reveal--scale.is-visible {
+  transform: scale(1);
+}
+
+.reveal--mask {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path var(--duration-mask) var(--ease-editorial);
+}
+
+.reveal--mask.is-visible {
+  clip-path: inset(0 0 0 0);
+}
+
+.reveal--mask img {
+  transform: scale(1.06);
+  transition: transform var(--duration-slow) var(--ease-editorial);
+}
+
+.reveal--mask.is-visible img {
+  transform: scale(1);
+}
+
+/* Chapter transition between public routes — the site never loads a
+   spinner; navigation is instant and the new page simply settles in. */
+.page-transition {
+  animation: kivuko-page-in var(--duration-page) var(--ease-editorial) both;
+}
+
+@keyframes kivuko-page-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Cinematic entrance for top-of-page hero photography: the image gently
@@ -115,10 +173,22 @@ button {
   html {
     scroll-behavior: auto;
   }
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
+  .reveal,
+  .reveal--scale,
+  .reveal--mask {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+  .reveal--mask img {
+    transform: none !important;
+  }
+  /* Staggered children (SectionIntro, Home occasions) stay visible */
+  .section-intro > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
   * {
     animation-duration: 0.001ms !important;
