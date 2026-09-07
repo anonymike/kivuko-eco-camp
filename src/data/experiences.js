@@ -1,4 +1,4 @@
-import { guidedView, campAtNight, wildlifeImpala, wildlifeKudu, mountainSunset, elephant, birdingPhoto } from "./imageAssets.js";
+import { experienceBushWalk, experienceBonfire, experienceBirding, experienceGameDrive, wildlifeImpala, wildlifeKudu, mountainSunset } from "./imageAssets.js";
 
 export const experiences = [
   {
@@ -6,28 +6,28 @@ export const experiences = [
     name: "Bush Walks",
     duration: "2–3 hours",
     oneLiner: "Track the wild on foot",
-    image: guidedView,
+    image: experienceBushWalk,
   },
   {
     slug: "bonfire-nights",
     name: "Bonfire Nights",
     duration: "Evening",
     oneLiner: "Stories beneath the stars",
-    image: campAtNight,
+    image: experienceBonfire,
   },
   {
     slug: "birding",
     name: "Birding",
     duration: "2 hours",
     oneLiner: "Over 150 species, one habitat",
-    image: birdingPhoto,
+    image: experienceBirding,
   },
   {
     slug: "game-drives",
     name: "Game Drives",
     duration: "3–4 hours",
     oneLiner: "Tsavo, up close",
-    image: elephant,
+    image: experienceGameDrive,
   },
   {
     slug: "wildlife-encounters",

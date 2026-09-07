@@ -325,3 +325,24 @@ export const campDiningPhoto = suppliedPhoto(
   1280,
   910,
 );
+
+export const experienceBushWalk = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/B2C4DD63-4A5B-4CCF-B0C5-B347F03E43B2_1_105_c-p3XKG5PNDP9gIXK9HEwG7y0ixXtrqP.jpeg",
+  722,
+  1086,
+);
+export const experienceBonfire = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/hans-ZqSDrFeAbCg-unsplash-4OXyfH1F5lY22zeVEiTe9MZ9hscxFC.jpg",
+  3000,
+  4000,
+);
+export const experienceBirding = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/kivuko-eco-camp-bird-watching-4JKcZmckqXtF7NFi2ZNFjAkVJdhUHQ.webp",
+  800,
+  533,
+);
+export const experienceGameDrive = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/grace-nandi-2WnwPUTAcao-unsplash-PwWFpHy3UW4vWdXtykMkt4sHmEcZaG.jpg",
+  3000,
+  4000,
+);
