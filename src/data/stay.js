@@ -1,4 +1,25 @@
-import { campTent, campRoom, campExterior, ensuiteBathroom } from "./imageAssets.js";
+import { ensuiteBathroom } from "./imageAssets.js";
+
+const bandaCottageImage = {
+  src: "/images/accommodation-banda-cottage.jpg",
+  webp: [],
+  width: 4096,
+  height: 2731,
+};
+
+const twinTentImage = {
+  src: "/images/accommodation-twin-tent.jpg",
+  webp: [],
+  width: 4096,
+  height: 2731,
+};
+
+const doubleTentImage = {
+  src: "/images/accommodation-double-tent.jpg",
+  webp: [],
+  width: 4096,
+  height: 2731,
+};
 
 export const amenities = [
   "Private stone terrace",
@@ -17,8 +38,8 @@ export const stayUnits = [
     description: "Secluded escape for families and small groups",
     capacity: "Up to 6 guests",
     priceFrom: "480",
-    image: campExterior,
-    gallery: [campExterior, ensuiteBathroom],
+    image: bandaCottageImage,
+    gallery: [bandaCottageImage, ensuiteBathroom],
   },
   {
     slug: "twin-tent",
@@ -27,8 +48,8 @@ export const stayUnits = [
     description: "Wake to mountain views from your private veranda",
     capacity: "Up to 4 guests",
     priceFrom: "320",
-    image: campRoom,
-    gallery: [campRoom, ensuiteBathroom],
+    image: twinTentImage,
+    gallery: [twinTentImage, ensuiteBathroom],
   },
   {
     slug: "double-tent",
@@ -37,7 +58,7 @@ export const stayUnits = [
     description: "King-size comfort opening up to Mt. Kasigau",
     capacity: "Up to 2 guests",
     priceFrom: "320",
-    image: campExterior,
-    gallery: [campExterior, ensuiteBathroom],
+    image: doubleTentImage,
+    gallery: [doubleTentImage, ensuiteBathroom],
   },
 ];
