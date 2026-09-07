@@ -210,3 +210,93 @@ export const breakfastPlate = {
   width: 2400,
   height: 1600,
 };
+
+// Original supplied photos are kept as distinct source assets so each content
+// category can use the photograph that actually depicts it.
+const suppliedPhoto = (src, width, height) => ({
+  src,
+  webp: [{ src, w: width }],
+  width,
+  height,
+});
+
+export const campTent = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0L2A1924-T8rkY1UtxuGuZwSVTmrdP0ISCajVtL.jpg",
+  2160,
+  1440,
+);
+export const campRoom = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DSC01743-min%20%281%29-WjojuoekBH1ocoTI3R707zwtlxmXdd.jpg",
+  1600,
+  1067,
+);
+export const campExterior = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG-20260902-WA0023-L0EChTpFNQtjtTrMSSK7MJ6lwAhcNe.jpg",
+  1600,
+  1067,
+);
+export const wildlifeImpala = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG-20260902-WA0024-p4t5WsTqSQYOYa7reVK34etZql141e.jpg",
+  1920,
+  1080,
+);
+export const wildlifeKudu = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG-20260902-WA0028-blwU2mpolB1XAlFmpKNWmiJB1cJQUW.jpg",
+  1066,
+  1600,
+);
+export const hillView = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/_DSC0003-pKk8ArN8YOwLtOxJJWeOo1YGlOnNPQ.jpg",
+  1600,
+  1067,
+);
+export const guidedView = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/_DSC0054-NpvPC81qPvby2ciKH3DCWUyUKbbhBM.jpg",
+  1080,
+  720,
+);
+export const diningSpread = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ADS_6783.JPG-SIipJjJgcKbPWySVbUXcscNRdmjZ2S.jpeg",
+  4160,
+  2773,
+);
+export const campAtNight = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG-20260902-WA0027-p9PJKKivZdBOXuTFyu0zaukAE8aVea.jpg",
+  2048,
+  1536,
+);
+export const campThatch = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/_CSC0036%20%281%29-xcjH0R8U6KXeH4CC8qj7VwqqI6PGTt.jpg",
+  4160,
+  2773,
+);
+export const breakfastSpread = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_1925-wZjCCqyJ9Db5XPmjZz6zRpw0YQTcxB.jpg",
+  4160,
+  2773,
+);
+export const hillCamp = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/_DSC0064%20%281%29-UBaaK0dvgHTsVhLm8PHlnkq6eodPgR.jpg",
+  2048,
+  1536,
+);
+export const mountainSunset = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/_DSC0003-pKk8ArN8YOwLtOxJJWeOo1YGlOnNPQ.jpg",
+  1600,
+  1067,
+);
+export const safariView = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG-20260902-WA0024-p4t5WsTqSQYOYa7reVK34etZql141e.jpg",
+  1920,
+  1080,
+);
+export const diningBreakfast = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0L2A1923-GMvDaLn3EBZhsi4Yu6462tJrL86Wvh.jpg",
+  4160,
+  2773,
+);
+export const hillLodge = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/_DSC0054-NpvPC81qPvby2ciKH3DCWUyUKbbhBM.jpg",
+  1080,
+  720,
+);
