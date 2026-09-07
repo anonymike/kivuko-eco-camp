@@ -28,7 +28,7 @@ export default function Header() {
     <header className={`site-header ${solid ? "site-header--solid" : "site-header--transparent"}`}>
       <div className="container site-header__row">
         <NavLink to="/" className="site-header__logo" aria-label={`${brand.fullName} — Home`}>
-          {brand.name}
+          <img src="/kivuko-logo.png" alt={`${brand.fullName} logo`} />
         </NavLink>
 
         <nav className="site-header__nav" aria-label="Primary">

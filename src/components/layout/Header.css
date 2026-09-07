@@ -28,11 +28,23 @@
 }
 
 .site-header__logo {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  letter-spacing: 0.12em;
-  color: var(--color-cream);
+  display: inline-flex;
+  align-items: center;
+  width: clamp(7.5rem, 24vw, 10.5rem);
   text-decoration: none;
+  transition: transform 220ms var(--ease-editorial), filter 220ms var(--ease-editorial);
+}
+
+.site-header__logo:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+.site-header__logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .site-header__nav {

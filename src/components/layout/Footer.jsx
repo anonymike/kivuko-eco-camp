@@ -14,7 +14,9 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container site-footer__top">
         <div className="site-footer__brand">
-          <p className="site-footer__logo">{brand.name}</p>
+          <Link to="/" className="site-footer__logo" aria-label={`${brand.fullName} — Home`}>
+            <img src="/kivuko-logo.png" alt={`${brand.fullName} logo`} />
+          </Link>
           <p className="site-footer__blurb">{brand.blurb}</p>
         </div>
 
