@@ -147,26 +147,30 @@ export default function Home() {
               </SectionIntro>
             </div>
             <div className="home-wildlife-feature__grid">
-              <Reveal as="div" variant="mask" className="home-wildlife-feature__hero">
-                <Image photo={elephant} alt="Elephant moving through Tsavo bush" sizes="(min-width: 900px) 66vw, 100vw" loading="lazy" />
-                <div className="home-wildlife-feature__label">Tsavo, up close</div>
+              <Reveal as="article" variant="mask" className="home-wildlife-feature__card home-wildlife-feature__card--hero">
+                <Image photo={elephant} alt="Elephant moving through Tsavo bush" sizes="(min-width: 900px) 42vw, 100vw" loading="lazy" />
+                <div>
+                  <Eyebrow>Game drives</Eyebrow>
+                  <h3>Tsavo, up close.</h3>
+                  <p>Follow the tracks, read the landscape, and meet the giants of the bush with an experienced guide.</p>
+                </div>
               </Reveal>
-              <div className="home-wildlife-feature__side">
-                <Reveal as="div" variant="scale" className="home-wildlife-feature__card">
-                  <Image photo={birdingPhoto} alt="Bird standing in the dry bush" sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
-                  <div>
-                    <Eyebrow>Birding</Eyebrow>
-                    <h3>Quiet moments, rare sightings.</h3>
-                  </div>
-                </Reveal>
-                <Reveal as="div" variant="scale" className="home-wildlife-feature__card home-wildlife-feature__card--camp">
-                  <Image photo={campTentPhoto} alt="Kivuko camp tent beneath a blue shade canopy" sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
-                  <div>
-                    <Eyebrow>Stay close</Eyebrow>
-                    <h3>Sleep where the wild passes by.</h3>
-                  </div>
-                </Reveal>
-              </div>
+              <Reveal as="article" variant="scale" className="home-wildlife-feature__card home-wildlife-feature__card--reverse">
+                <Image photo={birdingPhoto} alt="Bird standing in the dry bush" sizes="(min-width: 900px) 42vw, 100vw" loading="lazy" />
+                <div>
+                  <Eyebrow>Birding</Eyebrow>
+                  <h3>Quiet moments, rare sightings.</h3>
+                  <p>Start early, move slowly, and discover the smaller stories written through Tsavo&apos;s dry bush.</p>
+                </div>
+              </Reveal>
+              <Reveal as="article" variant="scale" className="home-wildlife-feature__card">
+                <Image photo={campTentPhoto} alt="Kivuko camp tent beneath a blue shade canopy" sizes="(min-width: 900px) 42vw, 100vw" loading="lazy" />
+                <div>
+                  <Eyebrow>Stay close</Eyebrow>
+                  <h3>Sleep where the wild passes by.</h3>
+                  <p>Return from the day&apos;s adventures to a quiet, open-air camp made for listening to the night.</p>
+                </div>
+              </Reveal>
             </div>
           </div>
         </section>

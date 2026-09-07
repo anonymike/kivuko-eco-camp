@@ -96,71 +96,68 @@
 .home-wildlife-feature__grid {
   display: grid;
   gap: var(--space-3);
+  max-width: 72rem;
+  margin-inline: auto;
 }
 
-.home-wildlife-feature__hero,
 .home-wildlife-feature__card {
   position: relative;
+  display: grid;
+  grid-template-columns: minmax(10rem, 42%) minmax(0, 1fr);
+  min-height: 16rem;
   overflow: hidden;
   background: var(--color-ink);
   border: 1px solid color-mix(in srgb, var(--color-cream) 18%, transparent);
 }
 
-/* Keep the feature photography visible even when scroll-reveal observers are delayed. */
-.home-wildlife-feature__hero.reveal--mask {
-  clip-path: inset(0);
-  opacity: 1;
+.home-wildlife-feature__card--reverse {
+  grid-template-columns: minmax(0, 1fr) minmax(10rem, 42%);
 }
 
-.home-wildlife-feature__hero.reveal--mask img {
-  transform: scale(1);
+.home-wildlife-feature__card--reverse img {
+  grid-column: 2;
+  grid-row: 1;
 }
 
-.home-wildlife-feature__hero::after,
+.home-wildlife-feature__card--reverse > div {
+  grid-column: 1;
+  grid-row: 1;
+}
+
 .home-wildlife-feature__card::after {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(180deg, transparent 50%, color-mix(in srgb, var(--color-ink) 78%, transparent));
-}
-
-.home-wildlife-feature__hero img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-}
-
-.home-wildlife-feature__label {
-  position: absolute;
-  inset-inline: var(--space-2);
-  bottom: var(--space-2);
-  font-family: var(--font-display);
-  font-size: var(--step-h3);
-  color: var(--color-cream);
-}
-
-.home-wildlife-feature__side {
-  display: grid;
-  gap: var(--space-3);
-}
-
-.home-wildlife-feature__card {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-2);
-  align-items: end;
+  background: linear-gradient(90deg, transparent 35%, color-mix(in srgb, var(--color-ink) 22%, transparent));
 }
 
 .home-wildlife-feature__card img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 100%;
+  min-height: 16rem;
   object-fit: cover;
 }
 
+.home-wildlife-feature__card > div {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-4) clamp(var(--space-3), 5vw, var(--space-6));
+}
+
 .home-wildlife-feature__card h3 {
+  max-width: 12ch;
   color: var(--color-cream);
   font-size: var(--step-h3);
+}
+
+.home-wildlife-feature__card p {
+  max-width: 34ch;
+  margin-top: var(--space-2);
+  color: var(--color-cream-soft-text);
 }
 
 .home-wildlife-feature__card .eyebrow {
@@ -173,54 +170,42 @@
     margin-bottom: var(--space-4);
   }
 
-  .home-wildlife-feature__hero img {
-    aspect-ratio: 5 / 4;
+  .home-wildlife-feature__card,
+  .home-wildlife-feature__card--reverse {
+    grid-template-columns: minmax(7rem, 38%) minmax(0, 1fr);
+    min-height: 13rem;
   }
 
-  .home-wildlife-feature__label {
-    font-size: var(--step-h4);
-  }
-
-  .home-wildlife-feature__card {
-    grid-template-columns: minmax(0, 1.2fr) minmax(8rem, 0.8fr);
-    min-height: 10rem;
+  .home-wildlife-feature__card--reverse img {
+    grid-column: 2;
   }
 
   .home-wildlife-feature__card img {
-    height: 100%;
+    min-height: 13rem;
   }
 
-  .home-wildlife-feature__card > div {
-    padding: var(--space-2) var(--space-2) var(--space-2) 0;
+  .home-wildlife-feature__card > div,
+  .home-wildlife-feature__card--reverse > div {
+    padding: var(--space-3);
   }
 
   .home-wildlife-feature__card h3 {
     font-size: var(--step-h4);
   }
+
+  .home-wildlife-feature__card p {
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
 }
 
 @media (min-width: 900px) {
-  .home-wildlife-feature__grid {
-    grid-template-columns: 2fr 1fr;
-    align-items: stretch;
-  }
-
-  .home-wildlife-feature__hero img {
-    height: 100%;
-    min-height: 34rem;
-  }
-
-  .home-wildlife-feature__side {
-    grid-template-rows: 1fr 1fr;
-  }
-
   .home-wildlife-feature__card {
-    grid-template-columns: 1fr;
-    align-content: end;
+    min-height: 19rem;
   }
 
   .home-wildlife-feature__card img {
-    aspect-ratio: 16 / 10;
+    min-height: 19rem;
   }
 }
 
