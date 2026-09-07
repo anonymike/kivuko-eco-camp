@@ -49,7 +49,7 @@ export default function Gallery() {
             {visible.map((img, i) => (
               <Reveal
                 as="div"
-                variant="mask"
+                variant="none"
                 className="gallery-grid__item"
                 key={img.photo.src}
                 style={{
