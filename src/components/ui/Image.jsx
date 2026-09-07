@@ -33,7 +33,7 @@ const Image = forwardRef(function Image(
       alt={alt}
       className={className}
       loading={loading}
-      fetchPriority={fetchPriority}
+      fetchpriority={fetchPriority}
       decoding={decoding}
       {...rest}
     />

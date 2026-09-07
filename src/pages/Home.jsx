@@ -11,7 +11,7 @@ import PageLayout from "../components/layout/PageLayout.jsx";
 import useParallax from "../hooks/useParallax.js";
 import { stayUnits } from "../data/stay.js";
 import { experiences } from "../data/experiences.js";
-import { breakfastTable, diningRockOverhang } from "../data/imageAssets.js";
+import { breakfastTable, diningRockOverhang, elephant, birdingPhoto, campTentPhoto, diningPavilionPhoto } from "../data/imageAssets.js";
 import "./Home.css";
 
 // Dining split is half the container on desktop; the sundowner is full-bleed.
@@ -138,13 +138,50 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Wildlife feature */}
+        <section className="home-wildlife-feature">
+          <div className="container">
+            <div className="home-wildlife-feature__header">
+              <SectionIntro eyebrow="Wild Encounters" title="The wild is not a backdrop here.">
+                It moves through the story of every stay — from elephants on the drive to birds moving quietly through the dry bush. Join guided drives, slow down for birding, and let Tsavo set the pace.
+              </SectionIntro>
+            </div>
+            <div className="home-wildlife-feature__grid">
+              <Reveal as="article" variant="mask" className="home-wildlife-feature__card home-wildlife-feature__card--hero">
+                <Image photo={elephant} alt="Elephant moving through Tsavo bush" sizes="(min-width: 900px) 42vw, 100vw" loading="lazy" />
+                <div>
+                  <Eyebrow>Game drives</Eyebrow>
+                  <h3>Tsavo, up close.</h3>
+                  <p>Follow the tracks, read the landscape, and meet the giants of the bush with an experienced guide.</p>
+                </div>
+              </Reveal>
+              <Reveal as="article" variant="scale" className="home-wildlife-feature__card home-wildlife-feature__card--reverse">
+                <Image photo={birdingPhoto} alt="Bird standing in the dry bush" sizes="(min-width: 900px) 42vw, 100vw" loading="lazy" />
+                <div>
+                  <Eyebrow>Birding</Eyebrow>
+                  <h3>Quiet moments, rare sightings.</h3>
+                  <p>Start early, move slowly, and discover the smaller stories written through Tsavo&apos;s dry bush.</p>
+                </div>
+              </Reveal>
+              <Reveal as="article" variant="scale" className="home-wildlife-feature__card">
+                <Image photo={campTentPhoto} alt="Kivuko camp tent beneath a blue shade canopy" sizes="(min-width: 900px) 42vw, 100vw" loading="lazy" />
+                <div>
+                  <Eyebrow>Stay close</Eyebrow>
+                  <h3>Sleep where the wild passes by.</h3>
+                  <p>Return from the day&apos;s adventures to a quiet, open-air camp made for listening to the night.</p>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
         {/* Dining teaser */}
         <section>
           <div className="container home-dining">
             <Reveal as="div" variant="mask" className="home-dining__media">
               <Image
-                photo={breakfastTable}
-                alt="Breakfast set for two at Kivuko"
+                photo={diningPavilionPhoto}
+                alt="Outdoor dining pavilion overlooking the bush"
                 sizes={HALF_SIZES}
                 loading="lazy"
               />
