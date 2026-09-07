@@ -80,6 +80,19 @@
   color: var(--color-cream);
 }
 
+.home-wildlife-feature__header {
+  max-width: 46rem;
+  margin-bottom: var(--space-5);
+}
+
+.home-wildlife-feature__header .section-intro {
+  margin-bottom: 0;
+}
+
+.home-wildlife-feature__header .section-intro h2 {
+  max-width: 12ch;
+}
+
 .home-wildlife-feature__grid {
   display: grid;
   gap: var(--space-3);
@@ -89,6 +102,17 @@
 .home-wildlife-feature__card {
   position: relative;
   overflow: hidden;
+  background: var(--color-ink);
+  border: 1px solid color-mix(in srgb, var(--color-cream) 18%, transparent);
+}
+
+.home-wildlife-feature__hero::after,
+.home-wildlife-feature__card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 50%, color-mix(in srgb, var(--color-ink) 78%, transparent));
 }
 
 .home-wildlife-feature__hero img {
@@ -132,6 +156,37 @@
 .home-wildlife-feature__card .eyebrow {
   color: var(--color-cream-soft-text);
   margin-bottom: var(--space-1);
+}
+
+@media (max-width: 899px) {
+  .home-wildlife-feature__header {
+    margin-bottom: var(--space-4);
+  }
+
+  .home-wildlife-feature__hero img {
+    aspect-ratio: 5 / 4;
+  }
+
+  .home-wildlife-feature__label {
+    font-size: var(--step-h4);
+  }
+
+  .home-wildlife-feature__card {
+    grid-template-columns: minmax(0, 1.2fr) minmax(8rem, 0.8fr);
+    min-height: 10rem;
+  }
+
+  .home-wildlife-feature__card img {
+    height: 100%;
+  }
+
+  .home-wildlife-feature__card > div {
+    padding: var(--space-2) var(--space-2) var(--space-2) 0;
+  }
+
+  .home-wildlife-feature__card h3 {
+    font-size: var(--step-h4);
+  }
 }
 
 @media (min-width: 900px) {

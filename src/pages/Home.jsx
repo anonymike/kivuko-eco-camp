@@ -143,7 +143,7 @@ export default function Home() {
           <div className="container">
             <div className="home-wildlife-feature__header">
               <SectionIntro eyebrow="Wild Encounters" title="The wild is not a backdrop here.">
-                It moves through the story of every stay — from elephants on the drive to birds moving quietly through the dry bush.
+                It moves through the story of every stay — from elephants on the drive to birds moving quietly through the dry bush. Join guided drives, slow down for birding, and let Tsavo set the pace.
               </SectionIntro>
             </div>
             <div className="home-wildlife-feature__grid">
