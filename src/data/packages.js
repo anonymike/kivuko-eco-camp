@@ -1,4 +1,4 @@
-import { twinTentInterior, diningRockOverhang, tentsExterior } from "./imageAssets.js";
+import { campRoom, campAtNight, campTent } from "./imageAssets.js";
 
 // Content matches the /packages screenshot exactly (nights/days badge,
 // name, one-liner, price unit). No package inclusions were visible in the
@@ -12,7 +12,7 @@ export const packages = [
     oneLiner: "Two nights of slow wilderness.",
     priceFrom: "580",
     priceUnit: "per person sharing",
-    image: twinTentInterior,
+    image: campRoom,
   },
   {
     slug: "fly-camping",
@@ -21,7 +21,7 @@ export const packages = [
     oneLiner: "Sleep out under the stars.",
     priceFrom: "380",
     priceUnit: "per person",
-    image: diningRockOverhang,
+    image: campAtNight,
   },
   {
     slug: "tsavo-escape",
@@ -30,6 +30,6 @@ export const packages = [
     oneLiner: "Three nights deep in Tsavo.",
     priceFrom: "890",
     priceUnit: "per person sharing",
-    image: tentsExterior,
+    image: campTent,
   },
 ];
