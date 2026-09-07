@@ -300,3 +300,28 @@ export const hillLodge = suppliedPhoto(
   1080,
   720,
 );
+export const elephant = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/kivuko%20eco%20camp%20tsavo%20922-min%20%281%29-nj3cCvhk1TWAHAP0tsBUJ7Qjgl1RDZ.jpg",
+  1920,
+  1080,
+);
+export const birdingPhoto = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG-20260902-WA0031-GF0K6J3TrVIA05gHdYv6UbxTNAfR1M.jpg",
+  1600,
+  1200,
+);
+export const diningPavilionPhoto = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG-20260902-WA0032-W2ocj1Yb7wV7eqWxtRsaG5VCna3SDM.jpg",
+  1280,
+  910,
+);
+export const campTentPhoto = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG-20260902-WA0030-eB7GOrVT1hbYqa9XMUUGEoAogW3iAW.jpg",
+  2400,
+  1600,
+);
+export const campDiningPhoto = suppliedPhoto(
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/_DSC0064%20%281%29-dmatUANquPTdgSTPITS5B32d8iSnuR.jpg",
+  1280,
+  910,
+);

@@ -69,6 +69,96 @@
   color: var(--color-ink-soft);
 }
 
+.home-wildlife-feature {
+  background: var(--color-forest);
+  color: var(--color-cream);
+}
+
+.home-wildlife-feature .section-intro,
+.home-wildlife-feature .section-intro h2,
+.home-wildlife-feature .section-intro p {
+  color: var(--color-cream);
+}
+
+.home-wildlife-feature__grid {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.home-wildlife-feature__hero,
+.home-wildlife-feature__card {
+  position: relative;
+  overflow: hidden;
+}
+
+.home-wildlife-feature__hero img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.home-wildlife-feature__label {
+  position: absolute;
+  inset-inline: var(--space-2);
+  bottom: var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--step-h3);
+  color: var(--color-cream);
+}
+
+.home-wildlife-feature__side {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.home-wildlife-feature__card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+  align-items: end;
+}
+
+.home-wildlife-feature__card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.home-wildlife-feature__card h3 {
+  color: var(--color-cream);
+  font-size: var(--step-h3);
+}
+
+.home-wildlife-feature__card .eyebrow {
+  color: var(--color-cream-soft-text);
+  margin-bottom: var(--space-1);
+}
+
+@media (min-width: 900px) {
+  .home-wildlife-feature__grid {
+    grid-template-columns: 2fr 1fr;
+    align-items: stretch;
+  }
+
+  .home-wildlife-feature__hero img {
+    height: 100%;
+    min-height: 34rem;
+  }
+
+  .home-wildlife-feature__side {
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .home-wildlife-feature__card {
+    grid-template-columns: 1fr;
+    align-content: end;
+  }
+
+  .home-wildlife-feature__card img {
+    aspect-ratio: 16 / 10;
+  }
+}
+
 .home-dining {
   display: grid;
   gap: var(--space-4);

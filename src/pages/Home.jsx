@@ -11,7 +11,7 @@ import PageLayout from "../components/layout/PageLayout.jsx";
 import useParallax from "../hooks/useParallax.js";
 import { stayUnits } from "../data/stay.js";
 import { experiences } from "../data/experiences.js";
-import { breakfastTable, diningRockOverhang } from "../data/imageAssets.js";
+import { breakfastTable, diningRockOverhang, elephant, birdingPhoto, campTentPhoto, diningPavilionPhoto } from "../data/imageAssets.js";
 import "./Home.css";
 
 // Dining split is half the container on desktop; the sundowner is full-bleed.
@@ -138,13 +138,46 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Wildlife feature */}
+        <section className="home-wildlife-feature">
+          <div className="container">
+            <div className="home-wildlife-feature__header">
+              <SectionIntro eyebrow="Wild Encounters" title="The wild is not a backdrop here.">
+                It moves through the story of every stay — from elephants on the drive to birds moving quietly through the dry bush.
+              </SectionIntro>
+            </div>
+            <div className="home-wildlife-feature__grid">
+              <Reveal as="div" variant="mask" className="home-wildlife-feature__hero">
+                <Image photo={elephant} alt="Elephant moving through Tsavo bush" sizes="(min-width: 900px) 66vw, 100vw" loading="lazy" />
+                <div className="home-wildlife-feature__label">Tsavo, up close</div>
+              </Reveal>
+              <div className="home-wildlife-feature__side">
+                <Reveal as="div" variant="scale" className="home-wildlife-feature__card">
+                  <Image photo={birdingPhoto} alt="Bird standing in the dry bush" sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+                  <div>
+                    <Eyebrow>Birding</Eyebrow>
+                    <h3>Quiet moments, rare sightings.</h3>
+                  </div>
+                </Reveal>
+                <Reveal as="div" variant="scale" className="home-wildlife-feature__card home-wildlife-feature__card--camp">
+                  <Image photo={campTentPhoto} alt="Kivuko camp tent beneath a blue shade canopy" sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+                  <div>
+                    <Eyebrow>Stay close</Eyebrow>
+                    <h3>Sleep where the wild passes by.</h3>
+                  </div>
+                </Reveal>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Dining teaser */}
         <section>
           <div className="container home-dining">
             <Reveal as="div" variant="mask" className="home-dining__media">
               <Image
-                photo={breakfastTable}
-                alt="Breakfast set for two at Kivuko"
+                photo={diningPavilionPhoto}
+                alt="Outdoor dining pavilion overlooking the bush"
                 sizes={HALF_SIZES}
                 loading="lazy"
               />
