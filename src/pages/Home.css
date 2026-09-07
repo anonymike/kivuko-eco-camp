@@ -209,32 +209,63 @@
   }
 }
 
-.home-dining {
-  display: grid;
-  gap: var(--space-4);
-  align-items: center;
+.home-dining-section {
+  padding: 0;
 }
 
-.home-dining__media img {
+.home-dining {
+  position: relative;
+  min-height: clamp(25rem, 62vw, 42rem);
+  overflow: hidden;
+  background: var(--color-ink);
+}
+
+.home-dining > img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
+}
+
+.home-dining__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(15, 17, 14, 0.82) 0%, rgba(15, 17, 14, 0.48) 48%, rgba(15, 17, 14, 0.12) 100%);
 }
 
 .home-dining__text {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
   align-items: flex-start;
+  justify-content: center;
+  min-height: inherit;
+  max-width: 30rem;
+  padding: clamp(var(--space-4), 8vw, var(--space-7));
+  color: var(--color-cream);
 }
 
 .home-dining__text h2 {
   font-size: var(--step-h2);
+  color: var(--color-cream);
 }
 
-@media (min-width: 900px) {
-  .home-dining {
-    grid-template-columns: 1fr 1fr;
+.home-dining__text p {
+  color: var(--color-cream-soft-text);
+  max-width: 34ch;
+}
+
+@media (max-width: 899px) {
+  .home-dining__overlay {
+    background: linear-gradient(90deg, rgba(15, 17, 14, 0.84), rgba(15, 17, 14, 0.28));
+  }
+
+  .home-dining > img {
+    object-position: 58% center;
   }
 }
 
