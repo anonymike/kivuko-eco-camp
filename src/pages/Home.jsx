@@ -11,11 +11,8 @@ import PageLayout from "../components/layout/PageLayout.jsx";
 import useParallax from "../hooks/useParallax.js";
 import { stayUnits } from "../data/stay.js";
 import { experiences } from "../data/experiences.js";
-import { breakfastTable, diningRockOverhang, elephant, birdingPhoto, campTentPhoto, diningPavilionPhoto } from "../data/imageAssets.js";
+import { diningRockOverhang, elephant, birdingPhoto, campTentPhoto } from "../data/imageAssets.js";
 import "./Home.css";
-
-// Dining split is half the container on desktop; the sundowner is full-bleed.
-const HALF_SIZES = "(min-width: 900px) 50vw, 100vw";
 
 const occasions = [
   "A romantic escape",
@@ -176,21 +173,19 @@ export default function Home() {
         </section>
 
         {/* Dining teaser */}
-        <section>
-          <div className="container home-dining">
-            <Reveal as="div" variant="mask" className="home-dining__media">
-              <Image
-                photo={diningPavilionPhoto}
-                alt="Outdoor dining pavilion overlooking the bush"
-                sizes={HALF_SIZES}
-                loading="lazy"
-              />
-            </Reveal>
+        <section className="home-dining-section">
+          <div className="home-dining">
+            <img
+              src="/images/dining-breakfast-plate.jpg"
+              alt="Breakfast plate prepared at Kivuko Eco Camp"
+              loading="lazy"
+            />
+            <div className="home-dining__overlay" aria-hidden="true" />
             <Reveal as="div" className="home-dining__text">
-              <Eyebrow>Dining</Eyebrow>
+              <Eyebrow tone="light">Dining</Eyebrow>
               <h2>Taste the Wild</h2>
               <p>Every meal is part of the escape — unhurried, honest, and shaped by the land around you.</p>
-              <Button to="/dining" variant="outline" tone="dark">
+              <Button to="/dining" variant="outline" tone="light">
                 Explore Dining
               </Button>
             </Reveal>
