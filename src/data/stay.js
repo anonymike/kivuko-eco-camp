@@ -1,4 +1,8 @@
-import { ensuiteBathroom } from "./imageAssets.js";
+import {
+  familyBandaStayPhoto,
+  twinTentStayPhoto,
+  doubleTentStayPhoto,
+} from "./imageAssets.js";
 
 const bandaCottageImage = {
   src: "/images/accommodation-banda-cottage.jpg",
@@ -39,7 +43,7 @@ export const stayUnits = [
     capacity: "Up to 6 guests",
     priceFrom: "480",
     image: bandaCottageImage,
-    gallery: [bandaCottageImage, ensuiteBathroom],
+    gallery: [bandaCottageImage, familyBandaStayPhoto],
   },
   {
     slug: "twin-tent",
@@ -49,7 +53,7 @@ export const stayUnits = [
     capacity: "Up to 4 guests",
     priceFrom: "320",
     image: twinTentImage,
-    gallery: [twinTentImage, ensuiteBathroom],
+    gallery: [twinTentImage, twinTentStayPhoto],
   },
   {
     slug: "double-tent",
@@ -59,6 +63,6 @@ export const stayUnits = [
     capacity: "Up to 2 guests",
     priceFrom: "320",
     image: doubleTentImage,
-    gallery: [doubleTentImage, ensuiteBathroom],
+    gallery: [doubleTentImage, doubleTentStayPhoto],
   },
 ];
