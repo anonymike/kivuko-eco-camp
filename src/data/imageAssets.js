@@ -348,17 +348,17 @@ export const experienceGameDrive = suppliedPhoto(
 );
 
 export const familyBandaStayPhoto = suppliedPhoto(
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lUYxksPZDkO2N8o7WihbQlt0gqrX19.png",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cottage_image-EI92FAB3eIG09Yz2hpq8uCuEZv6kiF.webp",
   594,
   398,
 );
 export const twinTentStayPhoto = suppliedPhoto(
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-HYBiePd5Py9AJW9FKHSYTCztiZGEP5.png",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/twin_tent_image-QCREM66G0OU2au88Wq39YfE4s23mHD.webp",
   594,
   398,
 );
 export const doubleTentStayPhoto = suppliedPhoto(
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-J76fsQQOdBMuJLm2TtF8RjWUo396mU.png",
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/double_tent_image-SZpmEQLD5idA3mdtI5wWf4RTHDyAxc.webp",
   594,
   398,
 );
