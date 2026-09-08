@@ -10,8 +10,6 @@ export const packages = [
     duration: "2 Nights · 3 Days",
     name: "The Kivuko Weekend",
     oneLiner: "Two nights of slow wilderness.",
-    priceFrom: "580",
-    priceUnit: "per person sharing",
     image: campRoom,
   },
   {
@@ -19,8 +17,6 @@ export const packages = [
     duration: "1 Nights · 2 Days",
     name: "Fly Camping",
     oneLiner: "Sleep out under the stars.",
-    priceFrom: "380",
-    priceUnit: "per person",
     image: campAtNight,
   },
   {
@@ -28,8 +24,6 @@ export const packages = [
     duration: "3 Nights · 4 Days",
     name: "The Tsavo Escape",
     oneLiner: "Three nights deep in Tsavo.",
-    priceFrom: "890",
-    priceUnit: "per person sharing",
     image: campTent,
   },
 ];

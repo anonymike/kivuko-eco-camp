@@ -88,10 +88,9 @@ export default function Home() {
                     to={`/stay/${unit.slug}`}
                     image={unit.image}
                     imageAlt={unit.name}
-                    badge={unit.view}
                     title={unit.name}
                     description={unit.description}
-                    meta={`${unit.capacity} · From $${unit.priceFrom}/night`}
+                    meta={unit.capacity}
                   />
                 ))}
               </CardGrid>

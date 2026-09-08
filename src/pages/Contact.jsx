@@ -58,7 +58,7 @@ export default function Contact() {
         title="Begin Your Escape"
         badge="Direct is best"
         subhead="Tell Us About Your Stay"
-        intro="No middlemen, no booking fees. Tell us your dates and we'll confirm availability and your rate directly."
+        intro="No middlemen, no booking fees. Tell us your dates and we&apos;ll confirm availability directly."
       />
 
       <section>
@@ -170,14 +170,6 @@ export default function Contact() {
             <div>
               <h3>Payment</h3>
               <p>{reservationTerms.payment}</p>
-            </div>
-            <div>
-              <h3>Children&apos;s Pricing</h3>
-              <ul>
-                {reservationTerms.childrenPricing.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
             </div>
             <div>
               <h3>Optional Activities</h3>

@@ -14,22 +14,6 @@ import { reservationTerms } from "../data/reservationTerms.js";
 
 export const bookingConfig = {
   campName: brand.fullName,
-  /** Displayed with rates. Rates are USD in the brochure. */
-  currency: "USD",
-  currencySymbol: "$",
-
-  /**
-   * Demo-only nightly "from" rates, keyed by stay-unit slug. These are the
-   * brochure from-rates already published on the site (stay.js priceFrom) —
-   * repeated here so the booking UI can show an honest estimate without
-   * pretending to quote live rates. Replace with adapter-provided rates.
-   */
-  demoFromRates: {
-    "family-banda": 480,
-    "twin-tent": 320,
-    "double-tent": 320,
-  },
-
   /**
    * Guest limits per booking. Conservative caps drawn from the largest
    * unit (the Banda sleeps up to 6) and the published children pricing.
@@ -51,10 +35,8 @@ export const bookingConfig = {
    * the demo shell never presents itself as live availability.
    */
   demoNotice:
-    "This is a demo booking preview — no live availability or reservation engine is connected yet. Rates shown are brochure from-rates; availability and final pricing are confirmed directly by the camp.",
+    "This is a demo booking preview — no live availability or reservation engine is connected yet. Availability and final arrangements are confirmed directly by the camp.",
   demoBadge: "Demo availability",
-  pricePlaceholder: "Price to be connected",
-  taxNote: "Taxes & fees to be confirmed on request",
 
   directContact: {
     phone: contact.phone,
@@ -66,6 +48,5 @@ export const bookingConfig = {
   policies: {
     fullBoardIncludes: reservationTerms.fullBoardIncludes,
     payment: reservationTerms.payment,
-    childrenPricing: reservationTerms.childrenPricing,
   },
 };

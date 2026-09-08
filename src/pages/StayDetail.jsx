@@ -1,6 +1,5 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import PageLayout from "../components/layout/PageLayout.jsx";
-import Eyebrow from "../components/ui/Eyebrow.jsx";
 import Button from "../components/ui/Button.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
 import Image from "../components/ui/Image.jsx";
@@ -28,7 +27,6 @@ export default function StayDetail() {
       <section className="section--tight">
         <div className="container detail-body">
           <Reveal as="div" className="detail-body__main">
-            <Eyebrow>{unit.view}</Eyebrow>
             <h1>{unit.name}</h1>
             <p className="detail-body__desc">{unit.description}</p>
 
@@ -53,16 +51,12 @@ export default function StayDetail() {
           </Reveal>
 
           <aside className="detail-sidebar">
-            <p className="detail-sidebar__price">
-              From <strong>${unit.priceFrom}</strong> / night
-            </p>
             <p className="detail-sidebar__meta">{unit.capacity}</p>
             <Button to={`/contact?subject=stay&unit=${unit.slug}`} variant="filled">
               Enquire About This Stay
             </Button>
             <p className="detail-sidebar__note">
-              Direct is best — no middlemen, no booking fees. We&apos;ll confirm availability and your rate by
-              WhatsApp or email.
+              Direct is best — no middlemen and no booking fees. We&apos;ll confirm availability by WhatsApp or email.
             </p>
             <Link className="detail-sidebar__back" to="/stay">
               ← Back to all stays

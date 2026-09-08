@@ -32,7 +32,6 @@ export default function Packages() {
                   badge={pkg.duration}
                   title={pkg.name}
                   description={pkg.oneLiner}
-                  meta={`From $${pkg.priceFrom} ${pkg.priceUnit}`}
                   linkLabel="View"
                 />
               ))}
