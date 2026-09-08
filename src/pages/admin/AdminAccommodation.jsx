@@ -7,7 +7,6 @@ const FIELDS = [
   { key: "view", label: "View / Tagline" },
   { key: "description", label: "Short description" },
   { key: "capacity", label: "Occupancy" },
-  { key: "priceFrom", label: "From rate (USD/night)", type: "number", placeholder: "e.g. 320" },
 ];
 
 export default function AdminAccommodation() {

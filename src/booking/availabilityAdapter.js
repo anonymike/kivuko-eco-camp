@@ -3,7 +3,7 @@
  * availability and reservation submission.
  *
  *   checkAvailability({ checkIn, checkOut, adults, children })
- *     -> { demo: true, results: [ { unit, nightlyFrom, total, available } ] }
+ *     -> { demo: true, results: [ { unit, nights, available } ] }
  *
  *   submitBookingRequest({ checkIn, checkOut, adults, children, unit, guest })
  *     -> { demo: true, reference: null, status: "request-received" }
@@ -18,8 +18,6 @@
  * one-file change rather than a refactor.
  */
 import { stayUnits } from "../data/stay.js";
-import { bookingConfig } from "./bookingConfig.js";
-import { nightsBetween } from "./bookingUtils.js";
 
 /**
  * Demo implementation. Returns every unit with its brochure from-rate as
@@ -29,16 +27,11 @@ import { nightsBetween } from "./bookingUtils.js";
  */
 async function demoCheckAvailability({ checkIn, checkOut }) {
   const nights = nightsBetween(checkIn, checkOut);
-  const results = stayUnits.map((unit) => {
-    const nightlyFrom = bookingConfig.demoFromRates[unit.slug] ?? null;
-    return {
-      unit,
-      nightlyFrom,
-      total: nightlyFrom === null ? null : nightlyFrom * nights,
-      nights,
-      available: true,
-    };
-  });
+  const results = stayUnits.map((unit) => ({
+    unit,
+    nights,
+    available: true,
+  }));
   return { demo: true, results };
 }
 

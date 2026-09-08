@@ -14,9 +14,6 @@ const REVIEW_SIZES = "(min-width: 900px) 30vw, 92vw";
  */
 export default function BookingReview({ unit, nights, booking }) {
   const { checkIn, checkOut, adults, children, goTo } = booking;
-  const nightly = bookingConfig.demoFromRates[unit.slug] ?? null;
-  const subtotal = nightly === null ? null : nightly * nights;
-
   return (
     <section className="review">
       <div className="container review__grid">
@@ -61,13 +58,6 @@ export default function BookingReview({ unit, nights, booking }) {
           <div className="review__policies">
             <h3>Good to know</h3>
             <p>{bookingConfig.policies.payment}</p>
-            {children > 0 && (
-              <ul>
-                {bookingConfig.policies.childrenPricing.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            )}
           </div>
 
           <div className="review__actions">
@@ -85,37 +75,8 @@ export default function BookingReview({ unit, nights, booking }) {
 
         <aside className="review__aside">
           <div className="review__card">
-            <h3>Price breakdown</h3>
-            {nightly === null ? (
-              <p className="review__placeholder">{bookingConfig.pricePlaceholder}</p>
-            ) : (
-              <>
-                <p className="review__rate">
-                  {bookingConfig.currencySymbol}
-                  {nightly} × {nights} {nights === 1 ? "night" : "nights"}
-                </p>
-                <dl className="review__breakdown">
-                  <div>
-                    <dt>Accommodation</dt>
-                    <dd>
-                      {bookingConfig.currencySymbol}
-                      {subtotal}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt>{bookingConfig.taxNote}</dt>
-                    <dd>On request</dd>
-                  </div>
-                </dl>
-                <p className="review__total">
-                  Estimated total{" "}
-                  <strong>
-                    {bookingConfig.currencySymbol}
-                    {subtotal}
-                  </strong>
-                </p>
-              </>
-            )}
+            <h3>Booking details</h3>
+            <p className="review__placeholder">Availability and final arrangements are confirmed directly with the camp.</p>
             <p className="review__demo">{bookingConfig.demoNotice}</p>
           </div>
         </aside>

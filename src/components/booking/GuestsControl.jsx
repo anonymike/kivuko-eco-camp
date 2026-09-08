@@ -104,8 +104,7 @@ export default function GuestsControl({ adults, children, onChange, onClose }) {
         </div>
 
         <p className="guests-modal__note">
-          Children 0–3 stay free sharing with parents; ages 4–12 at 50% of the per-person rate (sharing). Teenagers
-          pay the adult rate.
+          Please contact the reservations team for children&apos;s stay arrangements.
         </p>
 
         <div className="guests-modal__actions">

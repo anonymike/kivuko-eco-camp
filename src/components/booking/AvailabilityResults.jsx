@@ -43,7 +43,7 @@ export default function AvailabilityResults({ results, demo, nights, booking }) 
         )}
 
         <ul className="results__list">
-          {results.map(({ unit, nightlyFrom, total }) => (
+          {results.map(({ unit }) => (
             <li key={unit.slug} className="result-card">
               <div className="result-card__media">
                 <Image photo={unit.image} alt={unit.name} sizes={RESULT_SIZES} loading="lazy" />
@@ -65,30 +65,13 @@ export default function AvailabilityResults({ results, demo, nights, booking }) 
               </div>
 
               <div className="result-card__rate">
-                {nightlyFrom === null ? (
-                  <p className="result-card__placeholder">{bookingConfig.pricePlaceholder}</p>
-                ) : (
-                  <>
-                    <p className="result-card__from">from</p>
-                    <p className="result-card__price">
-                      {bookingConfig.currencySymbol}
-                      {nightlyFrom} <span>/ night</span>
-                    </p>
-                    <p className="result-card__total">
-                      {nights} {nights === 1 ? "night" : "nights"} · est.{" "}
-                      <strong>
-                        {bookingConfig.currencySymbol}
-                        {total}
-                      </strong>
-                    </p>
-                    <p className="result-card__tax">{bookingConfig.taxNote}</p>
-                  </>
-                )}
+                <p className="result-card__placeholder">Availability confirmed directly with the camp.</p>
                 <Button variant="filled" onClick={() => handleSelect(unit.slug)}>
                   Select
                 </Button>
                 <p className="result-card__availability">Available on request</p>
               </div>
+
             </li>
           ))}
         </ul>

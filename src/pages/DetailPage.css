@@ -6,8 +6,15 @@ section.detail-hero {
   margin-top: var(--header-h);
   width: 100%;
   aspect-ratio: 16 / 8;
-  max-height: 60vh;
+  max-height: min(60vh, 42rem);
   overflow: hidden;
+}
+
+@media (max-width: 639px) {
+  .detail-hero__media {
+    aspect-ratio: 4 / 3;
+    max-height: 70vh;
+  }
 }
 
 .detail-hero__media img {
@@ -72,16 +79,6 @@ section.detail-hero {
   align-items: flex-start;
   position: sticky;
   top: 100px;
-}
-
-.detail-sidebar__price {
-  font-size: var(--step-h3);
-  color: var(--color-forest);
-}
-
-.detail-sidebar__price strong {
-  font-family: var(--font-display);
-  color: var(--color-terracotta);
 }
 
 .detail-sidebar__meta {

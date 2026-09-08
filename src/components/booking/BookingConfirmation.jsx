@@ -47,19 +47,11 @@ export default function BookingConfirmation({ unit, nights, booking, reference }
             <dt>Accommodation</dt>
             <dd>{unit.name}</dd>
           </div>
-          <div>
-            <dt>Rate</dt>
-            <dd>
-              {bookingConfig.demoFromRates[unit.slug]
-                ? `Full board · from ${bookingConfig.currencySymbol}${bookingConfig.demoFromRates[unit.slug]}/night`
-                : bookingConfig.pricePlaceholder}
-            </dd>
-          </div>
         </dl>
 
         <div className="confirmation__next">
           <h2>Confirm directly with the camp</h2>
-          <p>Reach the reservations team — they will confirm availability and your rate personally.</p>
+          <p>Reach the reservations team — they will confirm availability and arrangements personally.</p>
           <ul>
             <li>
               <a href={`tel:${bookingConfig.directContact.phone.replace(/\s+/g, "")}`}>
