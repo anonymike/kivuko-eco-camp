@@ -60,14 +60,38 @@ export default function Home() {
           <div className="container">
             <Reveal as="ul" className="home-proximity">
               <li>
+                <div className="home-proximity__route" aria-hidden="true">
+                  <span className="home-proximity__road" />
+                  <span className="home-proximity__car home-proximity__car--one">
+                    <span className="home-proximity__car-cabin" />
+                    <span className="home-proximity__wheel home-proximity__wheel--front" />
+                    <span className="home-proximity__wheel home-proximity__wheel--back" />
+                  </span>
+                </div>
                 <strong><CountUp to={17} duration={1.4} /> km</strong>
                 <span>from Mombasa–Nairobi Road</span>
               </li>
               <li>
+                <div className="home-proximity__route" aria-hidden="true">
+                  <span className="home-proximity__road" />
+                  <span className="home-proximity__car home-proximity__car--two">
+                    <span className="home-proximity__car-cabin" />
+                    <span className="home-proximity__wheel home-proximity__wheel--front" />
+                    <span className="home-proximity__wheel home-proximity__wheel--back" />
+                  </span>
+                </div>
                 <strong><CountUp to={22} duration={1.6} /> km</strong>
                 <span>from Miasenyi Station</span>
               </li>
               <li>
+                <div className="home-proximity__route" aria-hidden="true">
+                  <span className="home-proximity__road" />
+                  <span className="home-proximity__car home-proximity__car--three">
+                    <span className="home-proximity__car-cabin" />
+                    <span className="home-proximity__wheel home-proximity__wheel--front" />
+                    <span className="home-proximity__wheel home-proximity__wheel--back" />
+                  </span>
+                </div>
                 <strong><CountUp to={20} duration={1.5} /> km</strong>
                 <span>from Buchuma Gate, Tsavo East</span>
               </li>
