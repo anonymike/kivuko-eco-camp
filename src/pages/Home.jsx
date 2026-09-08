@@ -7,6 +7,7 @@ import CardGrid from "../components/ui/CardGrid.jsx";
 import Card from "../components/ui/Card.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
 import Image from "../components/ui/Image.jsx";
+import CountUp from "../components/ui/CountUp.jsx";
 import PageLayout from "../components/layout/PageLayout.jsx";
 import useParallax from "../hooks/useParallax.js";
 import { stayUnits } from "../data/stay.js";
@@ -59,15 +60,15 @@ export default function Home() {
           <div className="container">
             <Reveal as="ul" className="home-proximity">
               <li>
-                <strong>17 km</strong>
+                <strong><CountUp to={17} duration={1.4} /> km</strong>
                 <span>from Mombasa–Nairobi Road</span>
               </li>
               <li>
-                <strong>22 km</strong>
+                <strong><CountUp to={22} duration={1.6} /> km</strong>
                 <span>from Miasenyi Station</span>
               </li>
               <li>
-                <strong>20 km</strong>
+                <strong><CountUp to={20} duration={1.5} /> km</strong>
                 <span>from Buchuma Gate, Tsavo East</span>
               </li>
             </Reveal>

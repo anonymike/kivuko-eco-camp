@@ -60,6 +60,12 @@
   font-family: var(--font-display);
   font-size: var(--step-h3);
   color: var(--color-forest);
+  font-variant-numeric: tabular-nums;
+}
+
+.home-proximity strong span {
+  display: inline-block;
+  min-width: 2ch;
 }
 
 .home-proximity span {
